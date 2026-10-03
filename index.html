@@ -195,6 +195,7 @@
     .rv{opacity:1; transform:none}
   }
 </style>
+<noscript><style>.rv{opacity:1 !important; transform:none !important}</style></noscript>
 </head>
 <body>
 <div id="bar"></div>
@@ -523,6 +524,10 @@
       });
     }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
     items.forEach(function(el){ io.observe(el); });
+    /* failsafe: never leave content hidden if something goes wrong */
+    window.setTimeout(function(){
+      items.forEach(function(el){ el.classList.add('in'); });
+    }, 2500);
   }
 
   /* count up the hero stats once they are on screen */
