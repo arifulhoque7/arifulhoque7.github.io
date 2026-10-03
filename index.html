@@ -97,9 +97,12 @@ img{max-width:100%;display:block}
 .arrowb:hover{transform:rotate(45deg) scale(1.08);background:var(--accent-ink)}
 .arrowb svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.2;fill:none}
 
-.strip{display:flex;align-items:center;gap:14px;padding:16px 24px;overflow:hidden}
-.strip .lbl{font-size:12.5px;color:var(--faint);font-family:var(--mono);white-space:nowrap;flex:none}
-.marq{display:flex;gap:34px;animation:slide 26s linear infinite;align-items:center}
+.strip{display:flex;align-items:center;gap:16px;padding:16px 24px;overflow:hidden}
+.strip .lbl{font-size:12.5px;color:var(--faint);font-family:var(--mono);white-space:nowrap;flex:none;z-index:2}
+.track{flex:1;min-width:0;overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 36px,#000 calc(100% - 36px),transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 36px,#000 calc(100% - 36px),transparent)}
+.marq{display:flex;gap:34px;animation:slide 26s linear infinite;align-items:center;width:max-content}
 .strip:hover .marq{animation-play-state:paused}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .marq span{font-size:16px;font-weight:700;color:var(--faint);white-space:nowrap;
@@ -309,12 +312,12 @@ footer{text-align:center;color:var(--faint);font-size:13.5px;padding:8px 0 0}
 
   <section class="panel strip rv">
     <span class="lbl">Shipping on:</span>
-    <div class="marq" aria-hidden="true">
+    <div class="track"><div class="marq" aria-hidden="true">
       <span>WordPress.org</span><span>Laravel</span><span>React</span><span>WooCommerce</span>
       <span>Inertia</span><span>Next.js</span><span>GitHub Actions</span><span>Playwright</span>
       <span>WordPress.org</span><span>Laravel</span><span>React</span><span>WooCommerce</span>
       <span>Inertia</span><span>Next.js</span><span>GitHub Actions</span><span>Playwright</span>
-    </div>
+    </div></div>
   </section>
 
   <section class="panel pad rv" id="about">
