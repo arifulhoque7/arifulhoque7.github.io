@@ -4,558 +4,686 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ariful Hoque</title>
-<meta name="description" content="Portfolio of Ariful Hoque, Software Engineer II at weDevs. WordPress plugins on 35,000+ active installs, two Laravel SaaS products, and client web projects.">
+<meta name="description" content="Ariful Hoque, Software Engineer II at weDevs. WordPress plugins on 35,000+ active installs, two Laravel SaaS products, and client web projects.">
 <meta property="og:title" content="Ariful Hoque">
 <meta property="og:description" content="WordPress and full stack developer. Plugins on 35,000+ active installs, two Laravel SaaS products shipped from scratch.">
+<meta property="og:image" content="https://arifulhoque7.github.io/assets/avatar.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231d6ff2'/><text y='70' x='50' font-size='58' font-family='Helvetica,Arial' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b84ff'/><text y='71' x='50' font-size='60' font-family='Helvetica,Arial' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>">
 <style>
-  :root{
-    --bg:#ffffff; --panel:#ffffff; --panel-2:#f6f8fc; --line:#e4e9f2;
-    --ink:#0d1526; --muted:#4e6180; --faint:#8094b0;
-    --accent:#1d6ff2; --accent-ink:#1d6ff2; --accent-soft:#eaf2fe;
-    --shadow:0 1px 2px rgba(16,32,64,.05), 0 8px 28px rgba(16,32,64,.07);
-    --shadow-lg:0 2px 6px rgba(16,32,64,.07), 0 22px 56px rgba(16,32,64,.13);
-    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --ease:cubic-bezier(.16,1,.3,1);
-  }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --bg:#0a111d; --panel:#111b2b; --panel-2:#162133; --line:#23314a;
-      --ink:#edf3fc; --muted:#a6b8d2; --faint:#7389a8;
-      --accent:#5ea2ff; --accent-ink:#8cbcff; --accent-soft:#14253d;
-      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 28px rgba(0,0,0,.34);
-      --shadow-lg:0 2px 6px rgba(0,0,0,.36), 0 22px 56px rgba(0,0,0,.5);
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#0a111d; --panel:#111b2b; --panel-2:#162133; --line:#23314a;
-    --ink:#edf3fc; --muted:#a6b8d2; --faint:#7389a8;
-    --accent:#5ea2ff; --accent-ink:#8cbcff; --accent-soft:#14253d;
-    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 28px rgba(0,0,0,.34);
-    --shadow-lg:0 2px 6px rgba(0,0,0,.36), 0 22px 56px rgba(0,0,0,.5);
-  }
+:root{
+  --page:#eef2f8; --card:#ffffff; --card-2:#f5f8fd; --line:#e3e9f3;
+  --ink:#0a1222; --muted:#54657f; --faint:#8396ae;
+  --accent:#0b84ff; --accent-ink:#0b6fd6; --accent-soft:#e7f1ff;
+  --sh:0 1px 2px rgba(13,30,60,.04), 0 6px 20px rgba(13,30,60,.06);
+  --sh-lg:0 2px 8px rgba(13,30,60,.07), 0 24px 56px rgba(13,30,60,.12);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --e:cubic-bezier(.16,1,.3,1);
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--sans);
+     line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:var(--sans); line-height:1.62; -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  .wrap{max-width:900px; margin:0 auto; padding:0 20px}
-  a{color:var(--accent-ink)}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:99;transition:width .1s linear}
 
-  /* ---------- scroll progress ---------- */
-  #bar{
-    position:fixed; top:0; left:0; height:2.5px; width:0%;
-    background:var(--accent); z-index:60; transition:width .1s linear;
-  }
+.shell{max-width:1280px;margin:0 auto;padding:22px 18px 60px;
+       display:grid;grid-template-columns:272px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:980px){.shell{grid-template-columns:1fr;padding-top:14px}}
 
-  /* ---------- nav ---------- */
-  nav{
-    position:sticky; top:0; z-index:50;
-    backdrop-filter:saturate(180%) blur(14px);
-    -webkit-backdrop-filter:saturate(180%) blur(14px);
-    background:color-mix(in srgb, var(--bg) 82%, transparent);
-    border-bottom:1px solid transparent; transition:border-color .3s, box-shadow .3s;
-  }
-  nav.stuck{border-bottom-color:var(--line)}
-  .navin{max-width:900px; margin:0 auto; padding:13px 20px;
-         display:flex; align-items:center; gap:18px}
-  .brand{font-weight:700; letter-spacing:-.02em; text-decoration:none; color:var(--ink); font-size:16px}
-  .navlinks{margin-left:auto; display:flex; gap:20px; align-items:center}
-  .navlinks a{
-    color:var(--muted); text-decoration:none; font-size:14.5px; position:relative; padding:2px 0;
-  }
-  .navlinks a::after{
-    content:''; position:absolute; left:0; bottom:-2px; width:0; height:1.5px;
-    background:var(--accent); transition:width .32s var(--ease);
-  }
-  .navlinks a:hover{color:var(--ink)}
-  .navlinks a:hover::after{width:100%}
-  #themeBtn{
-    background:var(--panel-2); border:1px solid var(--line); color:var(--muted);
-    width:32px; height:32px; border-radius:9px; cursor:pointer; font-size:14px;
-    display:grid; place-items:center; transition:transform .25s var(--ease), border-color .25s;
-  }
-  #themeBtn:hover{transform:rotate(18deg) scale(1.08); border-color:var(--accent)}
-  @media(max-width:640px){ .navlinks a:not(.keep){display:none} }
+.side{position:sticky;top:22px;background:var(--card);border:1px solid var(--line);
+      border-radius:var(--r);box-shadow:var(--sh);padding:26px 20px 18px;text-align:center}
+@media(max-width:980px){.side{position:static}}
+.ava{width:132px;height:132px;border-radius:50%;margin:0 auto 14px;
+     padding:5px;background:linear-gradient(140deg,var(--accent),#7cc4ff)}
+.ava img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid var(--card)}
+.srole{font-size:12.5px;color:var(--faint);font-family:var(--mono);letter-spacing:.04em}
+.sname{font-size:21px;font-weight:700;letter-spacing:-.02em;margin:1px 0 13px}
+.socials{display:flex;justify-content:center;gap:9px;margin-bottom:17px}
+.socials a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--muted);background:var(--card-2);
+  transition:transform .3s var(--e),background .3s,color .3s,border-color .3s}
+.socials a:hover{transform:translateY(-3px);background:var(--accent);color:#fff;border-color:var(--accent)}
+.socials svg{width:16px;height:16px;fill:currentColor}
+.ctas{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 17px;border-radius:999px;
+     font-size:14px;font-weight:600;border:1.5px solid var(--accent);transition:.3s var(--e);white-space:nowrap}
+.btn.solid{background:var(--accent);color:#fff}
+.btn.solid:hover{background:var(--accent-ink);border-color:var(--accent-ink);transform:translateY(-2px);box-shadow:0 10px 24px rgba(11,132,255,.32)}
+.btn.ghost{color:var(--accent-ink);background:transparent}
+.btn.ghost:hover{background:var(--accent-soft);transform:translateY(-2px)}
+.snav{border-top:1px solid var(--line);padding-top:14px;text-align:left}
+.snav a{display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:12px;
+  color:var(--muted);font-size:14.5px;font-weight:500;transition:.25s var(--e);margin-bottom:2px}
+.snav a svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;flex:none}
+.snav a:hover{background:var(--card-2);color:var(--ink)}
+.snav a.on{background:var(--accent-soft);color:var(--accent-ink);font-weight:600}
+@media(max-width:980px){
+  .snav{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+  .snav a{white-space:nowrap;margin:0}
+}
 
-  /* ---------- hero ---------- */
-  header{padding:76px 0 46px; position:relative}
-  header::before{
-    content:''; position:absolute; inset:-120px 0 auto -10%; height:420px; z-index:-1;
-    background:radial-gradient(60% 70% at 25% 35%, var(--accent-soft), transparent 70%);
-    opacity:.9; pointer-events:none;
-  }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-family:var(--mono);
-    color:var(--accent-ink); background:var(--accent-soft); border:1px solid var(--line);
-    padding:5px 11px; border-radius:999px; margin:0 0 18px; letter-spacing:.02em;
-  }
-  .dot{width:6px; height:6px; border-radius:50%; background:#22c55e; animation:pulse 2.4s infinite}
-  @keyframes pulse{0%,100%{opacity:1; transform:scale(1)} 50%{opacity:.45; transform:scale(.8)}}
-  h1{font-size:clamp(36px,7vw,56px); line-height:1.08; margin:0 0 12px; letter-spacing:-.03em}
-  .role{font-size:clamp(17px,3.2vw,21px); color:var(--muted); margin:0 0 6px}
-  .role b{color:var(--ink); font-weight:600}
-  .loc{color:var(--faint); font-size:15px; margin:0 0 26px}
-  .links{display:flex; flex-wrap:wrap; gap:9px}
-  .links a{
-    display:inline-flex; align-items:center; gap:7px; padding:9px 15px;
-    border:1px solid var(--line); border-radius:10px; text-decoration:none;
-    font-size:14.5px; background:var(--panel); color:var(--ink); box-shadow:var(--shadow);
-    transition:transform .28s var(--ease), border-color .28s, box-shadow .28s;
-  }
-  .links a:hover{transform:translateY(-2px); border-color:var(--accent); box-shadow:var(--shadow-lg)}
+.main{display:flex;flex-direction:column;gap:20px;min-width:0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
+.pad{padding:28px}
+@media(max-width:600px){.pad{padding:20px}}
+.kicker{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-family:var(--mono);
+  color:var(--muted);border:1px solid var(--line);background:var(--card-2);
+  padding:4px 11px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
+.sechead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.sechead h2{margin:0;font-size:clamp(22px,3.4vw,30px);letter-spacing:-.025em;font-weight:700}
+.sechead p{margin:4px 0 0;color:var(--faint);font-size:14px}
 
-  /* ---------- stat strip ---------- */
-  .stats{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
-    padding:28px 0 8px;
-  }
-  @media(max-width:640px){ .stats{grid-template-columns:repeat(2,1fr)} }
-  .stat{
-    background:var(--panel); border:1px solid var(--line); border-radius:12px;
-    padding:16px 14px; box-shadow:var(--shadow);
-    transition:transform .3s var(--ease), border-color .3s;
-  }
-  .stat:hover{transform:translateY(-3px); border-color:var(--accent)}
-  .num{font-size:clamp(22px,4vw,28px); font-weight:700; letter-spacing:-.02em; line-height:1.15}
-  .lbl{font-size:12.5px; color:var(--faint); margin-top:3px; line-height:1.35}
+.hero{display:grid;grid-template-columns:300px minmax(0,1fr);overflow:hidden}
+@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.heroimg{background:linear-gradient(160deg,#20365c,#4b6fa8);overflow:hidden}
+.heroimg img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transition:transform 1s var(--e)}
+.hero:hover .heroimg img{transform:scale(1.045)}
+@media(max-width:820px){.heroimg{height:300px}}
+.herotext{padding:40px 34px;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:600px){.herotext{padding:26px 20px}}
+.hi{color:var(--faint);font-size:15px;margin:0 0 4px}
+.hero h1{margin:0 0 14px;font-size:clamp(34px,5.6vw,56px);line-height:1.04;letter-spacing:-.035em;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:22px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;color:var(--muted)}
+.chip::before{content:'';width:7px;height:7px;border-radius:2px;background:var(--accent)}
+.hirewrap{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.arrowb{width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;
+  display:grid;place-items:center;transition:.35s var(--e)}
+.arrowb:hover{transform:rotate(45deg) scale(1.08);background:var(--accent-ink)}
+.arrowb svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.2;fill:none}
 
-  .intro{padding:34px 0 10px; color:var(--muted); font-size:17.5px; max-width:720px}
-  .intro strong{color:var(--ink); font-weight:600}
+.strip{display:flex;align-items:center;gap:14px;padding:16px 24px;overflow:hidden}
+.strip .lbl{font-size:12.5px;color:var(--faint);font-family:var(--mono);white-space:nowrap;flex:none}
+.marq{display:flex;gap:34px;animation:slide 26s linear infinite;align-items:center}
+.strip:hover .marq{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marq span{font-size:16px;font-weight:700;color:var(--faint);white-space:nowrap;
+  letter-spacing:-.02em;opacity:.75;transition:.3s}
+.marq span:hover{color:var(--accent);opacity:1}
 
-  /* ---------- sections ---------- */
-  section{padding:48px 0 4px; scroll-margin-top:72px}
-  .shead{margin-bottom:22px}
-  h2{font-size:12.5px; text-transform:uppercase; letter-spacing:.13em; color:var(--accent-ink);
-     margin:0 0 5px; font-weight:700; font-family:var(--mono)}
-  .sub{color:var(--faint); font-size:14.5px; margin:0}
+.bigsay{font-size:clamp(19px,2.9vw,26px);line-height:1.42;letter-spacing:-.02em;
+  font-weight:600;margin:0;text-align:center}
+.bigsay em{font-style:normal;color:var(--accent-ink)}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+@media(max-width:760px){.statrow{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--card-2);border:1px solid var(--line);border-radius:14px;padding:18px 16px;transition:.35s var(--e)}
+.stat:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--sh)}
+.stat .n{font-size:clamp(24px,3.6vw,31px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.stat .t{font-size:12.5px;color:var(--faint);margin-top:3px;line-height:1.35}
 
-  /* ---------- project card ---------- */
-  .card{
-    border:1px solid var(--line); border-radius:15px; background:var(--panel);
-    margin-bottom:18px; overflow:hidden; box-shadow:var(--shadow);
-    transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
-  }
-  .card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:color-mix(in srgb, var(--accent) 45%, var(--line))}
-  .shot{display:block; overflow:hidden; background:var(--panel-2); border-bottom:1px solid var(--line); line-height:0}
-  .shot img{
-    width:100%; height:auto; display:block;
-    transition:transform .75s var(--ease), filter .5s;
-  }
-  .card:hover .shot img{transform:scale(1.035)}
-  .body{padding:20px 22px 22px}
-  .ctop{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:3px}
-  .card h3{margin:0; font-size:20px; letter-spacing:-.015em}
-  .card h3 a{text-decoration:none; color:var(--ink)}
-  .card h3 a:hover{color:var(--accent-ink)}
-  .yr{color:var(--faint); font-size:14px; font-family:var(--mono)}
-  .meta{color:var(--faint); font-size:13px; margin:0 0 13px; font-family:var(--mono); word-break:break-all}
-  .contrib{margin:0 0 14px; color:var(--muted); font-size:15.5px}
-  .contrib b{color:var(--ink); font-weight:600}
-  code{font-family:var(--mono); font-size:.9em; background:var(--panel-2);
-       border:1px solid var(--line); padding:1px 5px; border-radius:5px; color:var(--ink)}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.skill{display:flex;align-items:center;gap:13px;padding:15px 17px;border-radius:14px;
+  border:1px solid var(--line);background:var(--card-2);transition:.35s var(--e)}
+.skill:hover{transform:translateY(-3px);border-color:var(--accent);background:var(--card);box-shadow:var(--sh)}
+.ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;flex:none;
+  background:var(--card);border:1px solid var(--line);font-weight:800;font-size:15px;color:var(--accent-ink)}
+.skill .nm{font-weight:650;font-size:15.5px;letter-spacing:-.01em}
+.skill .sub{font-size:12.5px;color:var(--faint);font-family:var(--mono)}
+.yrs{margin-left:auto;font-size:12px;font-family:var(--mono);color:var(--muted);
+  background:var(--card);border:1px solid var(--line);padding:4px 9px;border-radius:7px;flex:none}
 
-  /* live wp.org stats row */
-  .wpstats{
-    display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px;
-    padding:11px 13px; background:var(--panel-2); border:1px solid var(--line); border-radius:10px;
-  }
-  .wp{font-size:12.5px; font-family:var(--mono); color:var(--muted); display:flex; align-items:center; gap:5px}
-  .wp b{color:var(--ink); font-weight:700}
-  .wp + .wp::before{content:''; width:1px; height:12px; background:var(--line); margin-right:3px}
-  .stars{color:#f0a132; letter-spacing:1px}
+.srv{border:1px solid var(--line);border-radius:14px;margin-bottom:11px;overflow:hidden;
+  background:var(--card-2);transition:.35s var(--e)}
+.srv:hover{border-color:var(--accent);background:var(--card);box-shadow:var(--sh)}
+.srvtop{display:flex;align-items:center;gap:15px;padding:17px 18px;width:100%;
+  background:none;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.sid{font-family:var(--mono);font-size:12px;color:var(--faint);flex:none}
+.srvtop h3{margin:0;font-size:16.5px;font-weight:650;letter-spacing:-.015em;flex:1}
+.plus{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);
+  display:grid;place-items:center;flex:none;transition:.35s var(--e)}
+.srv.open .plus{transform:rotate(45deg);background:var(--accent);border-color:var(--accent);color:#fff}
+.plus svg{width:15px;height:15px;stroke:currentColor;stroke-width:2.2;fill:none}
+.srvbody{max-height:0;overflow:hidden;transition:max-height .5s var(--e)}
+.srvbody .in{padding:0 18px 18px 54px;color:var(--muted);font-size:15px}
+@media(max-width:600px){.srvbody .in{padding-left:18px}}
+.srvtags{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
 
-  .tags{display:flex; flex-wrap:wrap; gap:6px}
-  .tag{
-    font-size:12px; font-family:var(--mono); color:var(--muted);
-    background:var(--panel-2); border:1px solid var(--line);
-    padding:4px 9px; border-radius:7px; transition:color .25s, border-color .25s;
-  }
-  .card:hover .tag{border-color:color-mix(in srgb, var(--accent) 25%, var(--line))}
+.rings{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:820px){.rings{grid-template-columns:repeat(2,1fr)}}
+.ring{background:var(--card-2);border:1px solid var(--line);border-radius:14px;
+  padding:20px 12px;text-align:center;transition:.35s var(--e)}
+.ring:hover{transform:translateY(-4px);border-color:var(--accent);background:var(--card);box-shadow:var(--sh)}
+.ring svg{width:92px;height:92px;transform:rotate(-90deg)}
+.ring .track{stroke:var(--line)}
+.ring .fill{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:264;stroke-dashoffset:264;
+  transition:stroke-dashoffset 1.3s var(--e)}
+.ring .val{position:relative;margin-top:-58px;margin-bottom:28px;font-size:17px;font-weight:800;letter-spacing:-.02em}
+.ring .nm{font-size:13.5px;font-weight:600}
+.ring .sub{font-size:11.5px;color:var(--faint);font-family:var(--mono);margin-top:1px}
 
-  /* ---------- reveal animation ---------- */
-  .rv{opacity:0; transform:translateY(26px)}
-  .rv.in{opacity:1; transform:none; transition:opacity .75s var(--ease), transform .75s var(--ease)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+@media(max-width:880px){.flow{grid-template-columns:repeat(2,1fr)}}
+.step{background:var(--card-2);border:1px solid var(--line);border-radius:14px;padding:19px 17px;transition:.4s var(--e)}
+.step:hover{transform:translateY(-6px) rotate(-1.2deg);border-color:var(--accent);background:var(--card);box-shadow:var(--sh-lg)}
+.step .no{font-family:var(--mono);font-size:11.5px;color:var(--accent-ink);
+  background:var(--accent-soft);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:11px}
+.step h4{margin:0 0 5px;font-size:16px;letter-spacing:-.015em}
+.step p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.5}
 
-  footer{
-    padding:44px 0 70px; margin-top:40px; border-top:1px solid var(--line);
-    color:var(--faint); font-size:14.5px;
-  }
-  footer a{color:var(--muted)}
-  .updated{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:14px}
+.work{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);
+  margin-bottom:16px;transition:.4s var(--e)}
+.work:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.wshot{line-height:0;background:var(--card-2);border-bottom:1px solid var(--line);overflow:hidden}
+.wshot img{width:100%;transition:transform .8s var(--e)}
+.work:hover .wshot img{transform:scale(1.035)}
+.wbody{padding:19px 21px 21px}
+.wtop{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:2px}
+.wtop h3{margin:0;font-size:19px;letter-spacing:-.02em}
+.wtop h3 a:hover{color:var(--accent-ink)}
+.wurl{font-family:var(--mono);font-size:12.5px;color:var(--faint);margin:0 0 12px;word-break:break-all}
+.facts{display:flex;flex-wrap:wrap;gap:8px;padding:11px 13px;background:var(--card-2);
+  border:1px solid var(--line);border-radius:11px;margin-bottom:13px}
+.fact{font-size:12.5px;font-family:var(--mono);color:var(--muted)}
+.fact b{color:var(--ink)}
+.fact+.fact::before{content:'';display:inline-block;width:1px;height:11px;background:var(--line);margin-right:7px;vertical-align:-1px}
+.star{color:#f0a132}
+.ctr{color:var(--muted);font-size:15.3px;margin:0 0 13px}
+.ctr b{color:var(--ink);font-weight:650}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11.5px;font-family:var(--mono);color:var(--muted);background:var(--card-2);
+  border:1px solid var(--line);padding:4px 9px;border-radius:7px}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;
+  color:var(--accent-ink);margin-top:13px;transition:gap .3s var(--e)}
+.live:hover{gap:11px}
+code{font-family:var(--mono);font-size:.88em;background:var(--card-2);border:1px solid var(--line);
+  padding:1px 5px;border-radius:5px}
 
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important}
-    .rv{opacity:1; transform:none}
-  }
+.tl{position:relative;padding-left:26px}
+.tl::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tli{position:relative;padding-bottom:22px}
+.tli:last-child{padding-bottom:0}
+.tli::before{content:'';position:absolute;left:-26px;top:7px;width:14px;height:14px;border-radius:50%;
+  background:var(--card);border:3px solid var(--accent)}
+.tli .when{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.tli h4{margin:1px 0 2px;font-size:16.5px;letter-spacing:-.015em}
+.tli .co{color:var(--accent-ink);font-size:14px;font-weight:600}
+.tli p{margin:5px 0 0;font-size:14.3px;color:var(--muted);line-height:1.55}
+.eduwrap{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:6px}
+@media(max-width:760px){.eduwrap{grid-template-columns:1fr}}
+.edu{background:var(--card-2);border:1px solid var(--line);border-radius:13px;padding:16px 17px;transition:.35s var(--e)}
+.edu:hover{transform:translateY(-3px);border-color:var(--accent);background:var(--card)}
+.edu h4{margin:0 0 2px;font-size:15.5px;letter-spacing:-.015em}
+.edu .sch{font-size:13.5px;color:var(--muted)}
+.edu .gr{font-family:var(--mono);font-size:12px;color:var(--accent-ink);
+  background:var(--accent-soft);padding:3px 8px;border-radius:6px;display:inline-block;margin-top:8px}
+
+.faq{border:1px solid var(--line);border-radius:13px;margin-bottom:10px;background:var(--card-2);
+  overflow:hidden;transition:.3s var(--e)}
+.faq:hover{border-color:var(--accent)}
+.faq button{width:100%;display:flex;align-items:center;gap:14px;padding:16px 18px;background:none;
+  border:0;font:inherit;color:inherit;text-align:left;cursor:pointer;font-weight:600;font-size:15.5px}
+.faq .car{margin-left:auto;transition:.4s var(--e);flex:none;color:var(--muted)}
+.faq .car svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
+.faq.open .car{transform:rotate(180deg);color:var(--accent)}
+.faq .ans{max-height:0;overflow:hidden;transition:max-height .45s var(--e)}
+.faq .ans p{margin:0;padding:0 18px 17px;color:var(--muted);font-size:14.6px;line-height:1.6}
+
+.cta{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;align-items:center}
+@media(max-width:760px){.cta{grid-template-columns:1fr}}
+.cta h2{margin:6px 0 10px;font-size:clamp(25px,4vw,36px);letter-spacing:-.03em;line-height:1.14}
+.cta p{margin:0 0 20px;color:var(--muted);font-size:15.5px}
+.clist{display:flex;flex-direction:column;gap:10px}
+.cl{display:flex;align-items:center;gap:13px;padding:14px 16px;border-radius:13px;
+  background:var(--card-2);border:1px solid var(--line);transition:.35s var(--e)}
+.cl:hover{transform:translateX(5px);border-color:var(--accent);background:var(--card);box-shadow:var(--sh)}
+.cl .ci{width:38px;height:38px;border-radius:10px;background:var(--accent-soft);color:var(--accent-ink);
+  display:grid;place-items:center;flex:none}
+.cl .ci svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8}
+.cl .k{font-size:11.5px;color:var(--faint);font-family:var(--mono)}
+.cl .v{font-size:14.5px;font-weight:600;word-break:break-all}
+
+footer{text-align:center;color:var(--faint);font-size:13.5px;padding:8px 0 0}
+.upd{font-family:var(--mono);font-size:12px;margin-top:5px}
+
+.rv{opacity:0;transform:translateY(26px)}
+.rv.in{opacity:1;transform:none;transition:opacity .75s var(--e),transform .75s var(--e)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+  .marq{animation:none}
+  .ring .fill{stroke-dashoffset:0 !important}
+}
 </style>
-<noscript><style>.rv{opacity:1 !important; transform:none !important}</style></noscript>
+<noscript><style>
+  .rv{opacity:1 !important;transform:none !important}
+  .srvbody,.faq .ans{max-height:none !important}
+  .ring .fill{stroke-dashoffset:0 !important}
+</style></noscript>
 </head>
 <body>
 <div id="bar"></div>
+<div class="shell">
 
-<nav id="nav">
-  <div class="navin">
-    <a class="brand" href="#top">Ariful Hoque</a>
-    <div class="navlinks">
-      <a href="#plugins">Plugins</a>
-      <a href="#saas">SaaS</a>
-      <a href="#client">Client work</a>
-      <a class="keep" href="mailto:hoquea57@gmail.com">Contact</a>
-      <button id="themeBtn" aria-label="Toggle colour theme" title="Toggle theme">◐</button>
-    </div>
+<aside class="side rv">
+  <div class="ava"><img src="assets/avatar.jpg" alt="Ariful Hoque" width="460" height="460"></div>
+  <div class="srole">Software Engineer II</div>
+  <div class="sname">Ariful Hoque</div>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/arifulh" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14M7.12 20.45H3.55V9h3.57zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0"/></svg></a>
+    <a href="https://github.com/arifulhoque7" rel="noopener" aria-label="GitHub" title="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.3v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
+    <a href="mailto:hoquea57@gmail.com" aria-label="Email" title="Email">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a>
   </div>
-</nav>
-
-<div class="wrap" id="top">
-
-<header>
-  <span class="eyebrow rv"><span class="dot"></span> Available for work</span>
-  <h1 class="rv">Ariful Hoque</h1>
-  <p class="role rv"><b>Software Engineer II</b> at weDevs</p>
-  <p class="loc rv">Dhaka, Bangladesh &nbsp;&middot;&nbsp; WordPress and full stack development</p>
-  <div class="links rv">
-    <a href="mailto:hoquea57@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/arifulh" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/arifulhoque7" rel="noopener">GitHub</a>
+  <div class="ctas">
+    <a class="btn solid" href="mailto:hoquea57@gmail.com?subject=Work%20enquiry">Hire Me Now</a>
+    <a class="btn ghost" href="#contact">Contact</a>
   </div>
+  <nav class="snav" id="snav">
+    <a href="#top" class="on"><svg viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a>
+    <a href="#about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>About</a>
+    <a href="#skills"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h8l-1 8 10-12h-8z"/></svg>Skills</a>
+    <a href="#services"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Services</a>
+    <a href="#work"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Work</a>
+    <a href="#resume"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Experience</a>
+    <a href="#faq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.2 9a2.8 2.8 0 0 1 5.5.8c0 1.9-2.7 2.2-2.7 4"/><path d="M12 17.5h.01"/></svg>FAQs</a>
+    <a href="#contact"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>Contact</a>
+  </nav>
+</aside>
 
-  <div class="stats">
-    <div class="stat rv"><div class="num" data-to="35000" data-suffix="+">0</div><div class="lbl">Active installs on WordPress.org</div></div>
-    <div class="stat rv"><div class="num" data-to="10000" data-suffix="+">0</div><div class="lbl">Paying customers served</div></div>
-    <div class="stat rv"><div class="num" data-to="939" data-suffix="">0</div><div class="lbl">User reviews across my plugins</div></div>
-    <div class="stat rv"><div class="num" data-to="5" data-suffix="+">0</div><div class="lbl">Years building for the web</div></div>
-  </div>
-</header>
+<main class="main" id="top">
 
-<div class="intro rv">
-  <p style="margin:0">I build and maintain WordPress plugins used by tens of thousands of sites, and I have
-  shipped two <strong>Laravel SaaS products</strong> from an empty repository to production. Before product
-  work I delivered client websites and business systems end to end, from gathering requirements through
-  customization, testing and launch. Everything below is live and public, and the numbers come straight
-  from the WordPress.org plugin API.</p>
-</div>
-
-<section id="plugins">
-  <div class="shead rv">
-    <h2>WordPress plugins</h2>
-    <p class="sub">Published on WordPress.org. Install counts and ratings below are the real figures from the plugin API.</p>
-  </div>
-
-  <article class="card rv">
-    <a class="shot" href="https://wordpress.org/plugins/wp-user-frontend/" rel="noopener">
-      <img src="assets/wp-user-frontend-banner.jpg" alt="WP User Frontend on WordPress.org" loading="lazy" width="772" height="250">
-    </a>
-    <div class="body">
-      <div class="ctop"><h3><a href="https://wordpress.org/plugins/wp-user-frontend/" rel="noopener">WP User Frontend</a></h3></div>
-      <p class="meta">wordpress.org/plugins/wp-user-frontend</p>
-      <div class="wpstats">
-        <span class="wp"><b>20,000+</b> active installs</span>
-        <span class="wp"><span class="stars">&#9733;</span> <b>4.1</b> / 5 from 535 reviews</span>
-        <span class="wp">v<b>4.3.13</b></span>
+  <section class="panel hero rv">
+    <div class="heroimg"><img src="assets/hero.jpg" alt="Ariful Hoque" width="760" height="1013"></div>
+    <div class="herotext">
+      <p class="hi">Hey there, I'm</p>
+      <h1>Ariful<br>Hoque</h1>
+      <div class="chips">
+        <span class="chip">WordPress &amp; Laravel Developer</span>
+        <span class="chip">Based in Dhaka, Bangladesh</span>
       </div>
-      <p class="contrib"><b>My contribution:</b> I built the AI Form Builder, which generates post and
-      registration forms from a plain English prompt, working across OpenAI, Anthropic Claude and Google
-      Gemini. I migrated the settings screen and form builder from jQuery to React against a Figma
-      redesign, rebuilt the User Directory module with six layouts and faceted filtering, added seven
-      login form layouts, and shipped the SEO Settings module. I also own the releases: the GitHub Actions
-      pipeline that publishes this plugin to the WordPress.org repository is one I wrote.</p>
-      <div class="tags"><span class="tag">PHP</span><span class="tag">WordPress</span><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">WooCommerce</span><span class="tag">LLM APIs</span></div>
-    </div>
-  </article>
-
-  <article class="card rv">
-    <a class="shot" href="https://wordpress.org/plugins/erp/" rel="noopener">
-      <img src="assets/erp-banner.jpg" alt="WP ERP on WordPress.org" loading="lazy" width="772" height="250">
-    </a>
-    <div class="body">
-      <div class="ctop"><h3><a href="https://wordpress.org/plugins/erp/" rel="noopener">WP ERP</a></h3></div>
-      <p class="meta">wordpress.org/plugins/erp</p>
-      <div class="wpstats">
-        <span class="wp"><b>5,000+</b> active installs</span>
-        <span class="wp"><span class="stars">&#9733;</span> <b>4.4</b> / 5 from 149 reviews</span>
-        <span class="wp">v<b>1.17.10</b></span>
+      <div class="hirewrap">
+        <a class="btn solid" href="mailto:hoquea57@gmail.com?subject=Work%20enquiry">Hire Me Now</a>
+        <a class="arrowb" href="#work" aria-label="See my work"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       </div>
-      <p class="contrib"><b>My contribution:</b> I rebuilt the HRM admin from Vue to React on a new
-      <code>erp/v2</code> REST API, covering employee profiles, leave, payroll, recruitment, the org chart
-      and a custom field builder. I carried the HR Frontend self service module through documents,
-      permissions, head count reporting and termination and rehire flows, and shipped dark mode, RTL with
-      Arabic localization and accessibility passes.</p>
-      <div class="tags"><span class="tag">PHP</span><span class="tag">WordPress</span><span class="tag">React</span><span class="tag">REST API</span><span class="tag">Vue</span><span class="tag">RTL / i18n</span></div>
     </div>
-  </article>
+  </section>
 
-  <article class="card rv">
-    <a class="shot" href="https://wordpress.org/plugins/wedevs-project-manager/" rel="noopener">
-      <img src="assets/wedevs-project-manager-banner.jpg" alt="WP Project Manager on WordPress.org" loading="lazy" width="772" height="250">
-    </a>
-    <div class="body">
-      <div class="ctop"><h3><a href="https://wordpress.org/plugins/wedevs-project-manager/" rel="noopener">WP Project Manager</a></h3></div>
-      <p class="meta">wordpress.org/plugins/wedevs-project-manager</p>
-      <div class="wpstats">
-        <span class="wp"><b>5,000+</b> active installs</span>
-        <span class="wp"><span class="stars">&#9733;</span> <b>3.8</b> / 5 from 187 reviews</span>
-        <span class="wp">v<b>4.1.0</b></span>
+  <section class="panel strip rv">
+    <span class="lbl">Shipping on:</span>
+    <div class="marq" aria-hidden="true">
+      <span>WordPress.org</span><span>Laravel</span><span>React</span><span>WooCommerce</span>
+      <span>Inertia</span><span>Next.js</span><span>GitHub Actions</span><span>Playwright</span>
+      <span>WordPress.org</span><span>Laravel</span><span>React</span><span>WooCommerce</span>
+      <span>Inertia</span><span>Next.js</span><span>GitHub Actions</span><span>Playwright</span>
+    </div>
+  </section>
+
+  <section class="panel pad rv" id="about">
+    <div style="text-align:center;margin-bottom:18px"><span class="kicker">Biography</span></div>
+    <p class="bigsay">WordPress and full stack developer building plugins that run on
+      <em>35,000+ live sites</em>, two Laravel SaaS products shipped from an empty repository,
+      and client systems delivered <em>end to end</em>.</p>
+    <div class="statrow">
+      <div class="stat rv"><div class="n" data-to="35000" data-suffix="+">0</div><div class="t">Active installs on WordPress.org</div></div>
+      <div class="stat rv"><div class="n" data-to="10000" data-suffix="+">0</div><div class="t">Paying customers served</div></div>
+      <div class="stat rv"><div class="n" data-to="939" data-suffix="">0</div><div class="t">User reviews across my plugins</div></div>
+      <div class="stat rv"><div class="n" data-to="5" data-suffix="+">0</div><div class="t">Years building for the web</div></div>
+    </div>
+  </section>
+
+  <section class="panel pad rv" id="skills">
+    <div class="sechead">
+      <div><span class="kicker">Work tools</span><h2 style="margin-top:9px">My Technical Skills</h2></div>
+      <p>Daily drivers, with how long I have used each</p>
+    </div>
+    <div class="grid2">
+      <div class="skill rv"><div class="ic">P</div><div><div class="nm">PHP &amp; WordPress</div><div class="sub">plugins, REST, Gutenberg</div></div><span class="yrs">5 yrs</span></div>
+      <div class="skill rv"><div class="ic">L</div><div><div class="nm">Laravel</div><div class="sub">SaaS, APIs, queues</div></div><span class="yrs">5 yrs</span></div>
+      <div class="skill rv"><div class="ic">R</div><div><div class="nm">React</div><div class="sub">admin apps, Inertia</div></div><span class="yrs">4 yrs</span></div>
+      <div class="skill rv"><div class="ic">TS</div><div><div class="nm">JavaScript &amp; TypeScript</div><div class="sub">ES6+, Node.js, Next.js</div></div><span class="yrs">5 yrs</span></div>
+      <div class="skill rv"><div class="ic">W</div><div><div class="nm">WooCommerce</div><div class="sub">integrations, payments</div></div><span class="yrs">3 yrs</span></div>
+      <div class="skill rv"><div class="ic">DB</div><div><div class="nm">MySQL &amp; PostgreSQL</div><div class="sub">schema design, tuning</div></div><span class="yrs">5 yrs</span></div>
+      <div class="skill rv"><div class="ic">CI</div><div><div class="nm">GitHub Actions</div><div class="sub">release pipelines, SVN deploys</div></div><span class="yrs">2 yrs</span></div>
+      <div class="skill rv"><div class="ic">PW</div><div><div class="nm">Playwright</div><div class="sub">end to end suites in CI</div></div><span class="yrs">2 yrs</span></div>
+    </div>
+  </section>
+
+  <section class="panel pad rv" id="services">
+    <div class="sechead">
+      <div><span class="kicker">Our services</span><h2 style="margin-top:9px">What I Do</h2></div>
+      <p>Tap a row to expand</p>
+    </div>
+    <div class="srv open">
+      <button class="srvtop" aria-expanded="true"><span class="sid">[001]</span><h3>WordPress Plugin Development</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="srvbody"><div class="in">
+        Plugins built to WordPress.org standards: REST endpoints with real permission checks, Gutenberg
+        blocks, React admin screens, internationalisation with RTL, and a release pipeline that publishes
+        to the plugin repository. I have taken a plugin from first commit through the WordPress.org review
+        process to publication on my own.
+        <div class="srvtags"><span class="tag">PHP</span><span class="tag">REST API</span><span class="tag">React</span><span class="tag">Gutenberg</span><span class="tag">PHPCS</span></div>
+      </div></div>
+    </div>
+    <div class="srv">
+      <button class="srvtop" aria-expanded="false"><span class="sid">[002]</span><h3>WooCommerce &amp; Store Integrations</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="srvbody"><div class="in">
+        Checkout, subscription and payment flows wired into WooCommerce, Easy Digital Downloads and
+        PayPal, including recurring payments, coupon tracking, invoice emails and plan gating.
+        <div class="srvtags"><span class="tag">WooCommerce</span><span class="tag">EDD</span><span class="tag">PayPal</span><span class="tag">Subscriptions</span></div>
+      </div></div>
+    </div>
+    <div class="srv">
+      <button class="srvtop" aria-expanded="false"><span class="sid">[003]</span><h3>Laravel SaaS Development</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="srvbody"><div class="in">
+        Multi tenant applications from an empty repository to production: tenancy and subdomain
+        resolution, plan gating with usage metering, queued jobs and exports, and deployment on Laravel
+        Forge. Two of these are live right now.
+        <div class="srvtags"><span class="tag">Laravel</span><span class="tag">Inertia</span><span class="tag">React</span><span class="tag">Queues</span><span class="tag">Forge</span></div>
+      </div></div>
+    </div>
+    <div class="srv">
+      <button class="srvtop" aria-expanded="false"><span class="sid">[004]</span><h3>UI Rebuilds &amp; Performance</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="srvbody"><div class="in">
+        Legacy interfaces moved onto React and a shared design system, with dark mode, RTL and
+        accessibility passes. On the backend I profile and remove hot spots, which on one product cut
+        average API response time by 10% to 20%.
+        <div class="srvtags"><span class="tag">React</span><span class="tag">Design system</span><span class="tag">RTL / i18n</span><span class="tag">Profiling</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="panel pad rv">
+    <div class="sechead">
+      <div><span class="kicker">Live ratings</span><h2 style="margin-top:9px">How My Plugins Score</h2></div>
+      <p>User ratings from the WordPress.org plugin API</p>
+    </div>
+    <div class="rings">
+      <div class="ring rv"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42" fill="none" stroke-width="8"/><circle class="fill" cx="50" cy="50" r="42" fill="none" stroke-width="8" data-pct="92"/></svg><div class="val">4.6</div><div class="nm">weDocs</div><div class="sub">68 reviews</div></div>
+      <div class="ring rv"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42" fill="none" stroke-width="8"/><circle class="fill" cx="50" cy="50" r="42" fill="none" stroke-width="8" data-pct="88"/></svg><div class="val">4.4</div><div class="nm">WP ERP</div><div class="sub">149 reviews</div></div>
+      <div class="ring rv"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42" fill="none" stroke-width="8"/><circle class="fill" cx="50" cy="50" r="42" fill="none" stroke-width="8" data-pct="82"/></svg><div class="val">4.1</div><div class="nm">WP User Frontend</div><div class="sub">535 reviews</div></div>
+      <div class="ring rv"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42" fill="none" stroke-width="8"/><circle class="fill" cx="50" cy="50" r="42" fill="none" stroke-width="8" data-pct="76"/></svg><div class="val">3.8</div><div class="nm">Project Manager</div><div class="sub">187 reviews</div></div>
+    </div>
+  </section>
+
+  <section class="panel pad rv">
+    <div class="sechead"><div><span class="kicker">Working process</span><h2 style="margin-top:9px">How I Work</h2></div></div>
+    <div class="flow">
+      <div class="step rv"><span class="no">[001]</span><h4>Scope</h4><p>Work out what the client actually needs and what done looks like, before any code.</p></div>
+      <div class="step rv"><span class="no">[002]</span><h4>Build</h4><p>Ship in small reviewable pieces, following the platform's own coding standards.</p></div>
+      <div class="step rv"><span class="no">[003]</span><h4>Test</h4><p>Automated end to end runs in CI, plus a security pass over permissions and inputs.</p></div>
+      <div class="step rv"><span class="no">[004]</span><h4>Release</h4><p>Tagged release through a pipeline, with a changelog and a rollback path.</p></div>
+    </div>
+  </section>
+
+  <section class="panel pad rv" id="work">
+    <div class="sechead">
+      <div><span class="kicker">Featured work</span><h2 style="margin-top:9px">My Work Showcase</h2></div>
+      <p>All live and public. Figures from the WordPress.org API</p>
+    </div>
+
+    <article class="work rv">
+      <a class="wshot" href="https://wordpress.org/plugins/wp-user-frontend/" rel="noopener"><img src="assets/wp-user-frontend-banner.jpg" alt="WP User Frontend" loading="lazy" width="772" height="250"></a>
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://wordpress.org/plugins/wp-user-frontend/" rel="noopener">WP User Frontend</a></h3></div>
+        <p class="wurl">wordpress.org/plugins/wp-user-frontend</p>
+        <div class="facts"><span class="fact"><b>20,000+</b> installs</span><span class="fact"><span class="star">&#9733;</span> <b>4.1</b>/5 from 535</span><span class="fact">v<b>4.3.13</b></span></div>
+        <p class="ctr"><b>My contribution:</b> I built the AI Form Builder, which generates post and
+        registration forms from a plain English prompt across OpenAI, Anthropic Claude and Google Gemini.
+        I migrated the settings screen and form builder from jQuery to React against a Figma redesign,
+        rebuilt the User Directory with six layouts and faceted filtering, and shipped the SEO Settings
+        module. The GitHub Actions pipeline that publishes this plugin to WordPress.org is one I wrote.</p>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">WordPress</span><span class="tag">React</span><span class="tag">WooCommerce</span><span class="tag">LLM APIs</span></div>
+        <a class="live" href="https://wordpress.org/plugins/wp-user-frontend/" rel="noopener">See it live &rarr;</a>
       </div>
-      <p class="contrib"><b>My contribution:</b> I led the interface rebuild onto a shared design system,
-      covering the Kanban board, Gantt chart, task detail view and role scoped dashboards, and added an AI
-      project, chat and subtask generator. On the security side I patched a SQL injection in the task
-      query and a sensitive data exposure in the <code>/pm/v2/users</code> endpoint.</p>
-      <div class="tags"><span class="tag">PHP</span><span class="tag">WordPress</span><span class="tag">React</span><span class="tag">Design system</span><span class="tag">Security</span></div>
-    </div>
-  </article>
+    </article>
 
-  <article class="card rv">
-    <a class="shot" href="https://wordpress.org/plugins/wedocs/" rel="noopener">
-      <img src="assets/wedocs-banner.jpg" alt="weDocs on WordPress.org" loading="lazy" width="772" height="250">
-    </a>
-    <div class="body">
-      <div class="ctop"><h3><a href="https://wordpress.org/plugins/wedocs/" rel="noopener">weDocs</a></h3></div>
-      <p class="meta">wordpress.org/plugins/wedocs</p>
-      <div class="wpstats">
-        <span class="wp"><b>5,000+</b> active installs</span>
-        <span class="wp"><span class="stars">&#9733;</span> <b>4.6</b> / 5 from 68 reviews</span>
-        <span class="wp">v<b>2.6.0</b></span>
+    <article class="work rv">
+      <a class="wshot" href="https://wordpress.org/plugins/erp/" rel="noopener"><img src="assets/erp-banner.jpg" alt="WP ERP" loading="lazy" width="772" height="250"></a>
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://wordpress.org/plugins/erp/" rel="noopener">WP ERP</a></h3></div>
+        <p class="wurl">wordpress.org/plugins/erp</p>
+        <div class="facts"><span class="fact"><b>5,000+</b> installs</span><span class="fact"><span class="star">&#9733;</span> <b>4.4</b>/5 from 149</span><span class="fact">v<b>1.17.10</b></span></div>
+        <p class="ctr"><b>My contribution:</b> I rebuilt the HRM admin from Vue to React on a new
+        <code>erp/v2</code> REST API, covering employee profiles, leave, payroll, recruitment, the org
+        chart and a custom field builder, then carried the HR Frontend self service module through
+        documents, permissions and reporting, with dark mode, Arabic RTL and accessibility passes.</p>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">React</span><span class="tag">REST API</span><span class="tag">Vue</span><span class="tag">RTL / i18n</span></div>
+        <a class="live" href="https://wordpress.org/plugins/erp/" rel="noopener">See it live &rarr;</a>
       </div>
-      <p class="contrib"><b>My contribution:</b> I built the seven level drag and drop documentation
-      hierarchy, the search modal, the print block, social sharing and meta tags, AI document summaries
-      and image analysis with vision models, a FAQ section with its shortcode, selectable documentation
-      URL structures, and the admin analytics dashboard.</p>
-      <div class="tags"><span class="tag">PHP</span><span class="tag">WordPress</span><span class="tag">React</span><span class="tag">Gutenberg</span><span class="tag">AI</span></div>
-    </div>
-  </article>
+    </article>
 
-  <article class="card rv">
-    <a class="shot" href="https://wordpress.org/plugins/flyhr/" rel="noopener">
-      <img src="assets/flyhr-banner.jpg" alt="FlyHR on WordPress.org" loading="lazy" width="772" height="250">
-    </a>
-    <div class="body">
-      <div class="ctop"><h3><a href="https://wordpress.org/plugins/flyhr/" rel="noopener">FlyHR</a></h3><span class="yr">built solo</span></div>
-      <p class="meta">wordpress.org/plugins/flyhr</p>
-      <div class="wpstats">
-        <span class="wp">v<b>0.1.0</b></span>
-        <span class="wp">published <b>August 2026</b></span>
+    <article class="work rv">
+      <a class="wshot" href="https://sellbuddy.co/" rel="noopener"><img src="assets/sellbuddy-shot.jpg" alt="Sellbuddy home page" loading="lazy" width="900" height="749"></a>
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://sellbuddy.co/" rel="noopener">Sellbuddy</a></h3></div>
+        <p class="wurl">sellbuddy.co</p>
+        <p class="ctr"><b>My contribution:</b> A multi tenant commerce platform where every seller gets
+        their own storefront on a subdomain. I built subdomain shop resolution, the template registry and
+        theme resolver, a full storefront section editor, the media library, per shop localisation with
+        RTL, and the Laravel Forge deployment setup.</p>
+        <div class="tags"><span class="tag">Laravel 12</span><span class="tag">Inertia</span><span class="tag">React</span><span class="tag">MySQL</span><span class="tag">Forge</span></div>
+        <a class="live" href="https://sellbuddy.co/" rel="noopener">See it live &rarr;</a>
       </div>
-      <p class="contrib"><b>My contribution:</b> Built entirely by me, from the empty repository through to
-      publication. A dependency injection container and REST foundation, employees, departments,
-      designations, financial years and holidays, a leave engine with policies and an entitlement ledger,
-      and a single React admin app. I wrote the Playwright end to end suite and the PHPCS pipeline, and I
-      took it through the WordPress.org review rounds on my own.</p>
-      <div class="tags"><span class="tag">PHP</span><span class="tag">WordPress</span><span class="tag">React</span><span class="tag">Playwright</span><span class="tag">CI / CD</span></div>
+    </article>
+
+    <article class="work rv">
+      <a class="wshot" href="https://flyforms.co/" rel="noopener"><img src="assets/flyforms-shot.jpg" alt="FlyForms home page" loading="lazy" width="900" height="749"></a>
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://flyforms.co/" rel="noopener">FlyForms</a></h3></div>
+        <p class="wurl">flyforms.co</p>
+        <p class="ctr"><b>My contribution:</b> A drag and drop form builder SaaS I built end to end:
+        workspace and organisation tenancy, plan gated routes with usage metering, the builder, a
+        conditional logic engine, the respondent runtime with validation and anti spam, response
+        analytics with queued exports, a template gallery and embeddable forms.</p>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Inertia</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Queues</span></div>
+        <a class="live" href="https://flyforms.co/" rel="noopener">See it live &rarr;</a>
+      </div>
+    </article>
+
+    <article class="work rv">
+      <a class="wshot" href="https://wordpress.org/plugins/flyhr/" rel="noopener"><img src="assets/flyhr-banner.jpg" alt="FlyHR" loading="lazy" width="772" height="250"></a>
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://wordpress.org/plugins/flyhr/" rel="noopener">FlyHR</a></h3><span class="wurl" style="margin:0">built solo</span></div>
+        <p class="wurl">wordpress.org/plugins/flyhr</p>
+        <div class="facts"><span class="fact">v<b>0.1.0</b></span><span class="fact">published <b>August 2026</b></span></div>
+        <p class="ctr"><b>My contribution:</b> Built entirely by me, from the empty repository to
+        publication. A dependency injection container and REST foundation, employees, departments,
+        designations, financial years and holidays, a leave engine with policies and an entitlement
+        ledger, and a single React admin app. I wrote the Playwright suite and PHPCS pipeline, and took it
+        through the WordPress.org review rounds alone.</p>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">React</span><span class="tag">Playwright</span><span class="tag">CI / CD</span></div>
+        <a class="live" href="https://wordpress.org/plugins/flyhr/" rel="noopener">See it live &rarr;</a>
+      </div>
+    </article>
+
+    <article class="work rv">
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://bdtask.com/" rel="noopener">Bdtask client systems</a></h3><span class="wurl" style="margin:0">2022 to 2024</span></div>
+        <p class="wurl">bdtask.com</p>
+        <p class="ctr"><b>My contribution:</b> I customised and delivered business systems for individual
+        clients: a hospital management system, restaurant and POS platforms including Restora POS with
+        Arabic and RTL support, a bus reservation platform, multi branch hotel accounting with branch to
+        main server synchronisation, a gold retail ERP with live price integration, and medical reporting
+        for Lavender Clinics. Client facing throughout, from working out the requirement to launch and
+        support. These are private deployments, so the systems themselves are not publicly linkable.</p>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">CodeIgniter</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">RTL</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="panel pad rv" id="resume">
+    <div class="sechead"><div><span class="kicker">Resume</span><h2 style="margin-top:9px">Experience &amp; Education</h2></div></div>
+    <div class="tl">
+      <div class="tli rv"><div class="when">Mar 2026 to Present</div><h4>Software Engineer II</h4><div class="co">weDevs</div>
+        <p>AI features and UI modernisation across the WordPress product line, plus two Laravel SaaS products built from scratch. I own release engineering for the plugin line.</p></div>
+      <div class="tli rv"><div class="when">Apr 2025 to Feb 2026</div><h4>Software Engineer</h4><div class="co">weDevs</div>
+        <p>Shipped the AI Form Builder and the User Directory rebuild in WP User Frontend, then onboarded onto weDocs, WP ERP and WP Project Manager. Owned security and standards work across the suite.</p></div>
+      <div class="tli rv"><div class="when">Feb 2025 to Aug 2025</div><h4>Senior Full Stack Developer</h4><div class="co">TubeOnAI</div>
+        <p>Redesigned the backend and REST APIs, cutting average response time by 10% to 20%, and built the AI content pipeline. Part-time from April 2025.</p></div>
+      <div class="tli rv"><div class="when">Aug 2024 to Jan 2025</div><h4>Software Engineer</h4><div class="co">Nextbit Technologies</div>
+        <p>Built WCStudio, a Laravel platform for building and hosting WordPress sites, covering provisioning, snapshots and server configuration.</p></div>
+      <div class="tli rv"><div class="when">Sep 2022 to Jul 2024</div><h4>PHP Developer</h4><div class="co">Bdtask</div>
+        <p>Delivered ERP, POS, hospital and hotel systems for clients, including multi branch synchronisation and Arabic RTL support.</p></div>
+      <div class="tli rv"><div class="when">Jan 2021 to Aug 2022</div><h4>Full Stack Web Developer</h4><div class="co">App Atlantis and Drawhouse Dhaka</div>
+        <p>Progressed from intern to web application developer across four terms. Laravel and React features across ERP, POS, accounts and reporting.</p></div>
     </div>
-  </article>
-</section>
-
-<section id="saas">
-  <div class="shead rv">
-    <h2>SaaS products</h2>
-    <p class="sub">Both built from an empty repository and running in production. Screenshots are of the live sites.</p>
-  </div>
-
-  <article class="card rv">
-    <a class="shot" href="https://sellbuddy.co/" rel="noopener">
-      <img src="assets/sellbuddy-shot.jpg" alt="Screenshot of the Sellbuddy home page" loading="lazy" width="900" height="749">
-    </a>
-    <div class="body">
-      <div class="ctop"><h3><a href="https://sellbuddy.co/" rel="noopener">Sellbuddy</a></h3></div>
-      <p class="meta">sellbuddy.co</p>
-      <p class="contrib"><b>My contribution:</b> A multi tenant commerce platform where every seller gets
-      their own storefront on a subdomain. I built the subdomain shop resolution, the template registry
-      and theme resolver, a full storefront section editor, the media library, per shop localization with
-      RTL support, and the Laravel Forge deployment setup.</p>
-      <div class="tags"><span class="tag">Laravel 12</span><span class="tag">Inertia</span><span class="tag">React</span><span class="tag">MySQL</span><span class="tag">Forge</span></div>
+    <h3 style="margin:26px 0 12px;font-size:17px;letter-spacing:-.02em">Education</h3>
+    <div class="eduwrap">
+      <div class="edu rv"><h4>M.Sc. in Computer Science &amp; Engineering</h4><div class="sch">BUET</div><span class="gr">Ongoing</span></div>
+      <div class="edu rv"><h4>B.Sc. in Computer Science &amp; Engineering</h4><div class="sch">BRAC University</div><span class="gr">CGPA 3.66 / 4.00</span></div>
     </div>
-  </article>
+  </section>
 
-  <article class="card rv">
-    <a class="shot" href="https://flyforms.co/" rel="noopener">
-      <img src="assets/flyforms-shot.jpg" alt="Screenshot of the FlyForms home page" loading="lazy" width="900" height="749">
-    </a>
-    <div class="body">
-      <div class="ctop"><h3><a href="https://flyforms.co/" rel="noopener">FlyForms</a></h3></div>
-      <p class="meta">flyforms.co</p>
-      <p class="contrib"><b>My contribution:</b> A drag and drop form builder SaaS that I built end to end:
-      workspace and organization tenancy, plan gated routes with usage metering, the builder itself, a
-      conditional logic engine, the respondent runtime with validation and anti spam, response analytics
-      with queued exports, a template gallery and embeddable forms.</p>
-      <div class="tags"><span class="tag">Laravel</span><span class="tag">Inertia</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Queues</span></div>
+  <section class="panel pad rv" id="faq">
+    <div class="sechead"><div><span class="kicker">Question &amp; answer</span><h2 style="margin-top:9px">Frequently Asked Questions</h2></div></div>
+    <div class="faq open">
+      <button aria-expanded="true">Are you available for new work?<span class="car"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      <div class="ans"><p>Yes. I am open to remote roles and project work. Email me at
+        <a href="mailto:hoquea57@gmail.com" style="color:var(--accent-ink);font-weight:600">hoquea57@gmail.com</a>
+        and I will reply with availability.</p></div>
     </div>
-  </article>
-</section>
-
-<section id="client">
-  <div class="shead rv">
-    <h2>Client and agency work</h2>
-    <p class="sub">Delivered for paying clients. Company sites are linked; the client systems themselves are private deployments.</p>
-  </div>
-
-  <article class="card rv">
-    <div class="body">
-      <div class="ctop"><h3><a href="https://bdtask.com/" rel="noopener">Bdtask</a></h3><span class="yr">2022 to 2024</span></div>
-      <p class="meta">PHP Developer, client projects</p>
-      <p class="contrib"><b>My contribution:</b> I customized and delivered business systems for individual
-      clients: a hospital management system, restaurant and POS platforms including Restora POS with
-      Arabic and RTL support, a bus reservation platform, multi branch hotel accounting with branch to
-      main server synchronization, a gold retail ERP with live price integration, and medical reporting
-      for Lavender Clinics. This work was client facing, from working out what each client needed through
-      to launch and support.</p>
-      <div class="tags"><span class="tag">PHP</span><span class="tag">CodeIgniter</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">REST API</span><span class="tag">RTL</span></div>
+    <div class="faq">
+      <button aria-expanded="false">Can I verify the numbers on this page?<span class="car"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      <div class="ans"><p>Every install count, rating and version here comes from the public WordPress.org
+        plugin API, and each project links to its own page so you can check it yourself. My commit history
+        is public at <a href="https://github.com/arifulhoque7" rel="noopener" style="color:var(--accent-ink);font-weight:600">github.com/arifulhoque7</a>.</p></div>
     </div>
-  </article>
-
-  <article class="card rv">
-    <div class="body">
-      <div class="ctop"><h3><a href="https://nextbit.io/" rel="noopener">Nextbit Technologies</a></h3><span class="yr">2024 to 2025</span></div>
-      <p class="meta">Software Engineer</p>
-      <p class="contrib"><b>My contribution:</b> I built WCStudio, a platform for building and hosting
-      WordPress websites, from scratch in Laravel. It covered site provisioning, snapshot management and
-      server configuration, comparable to FlyWP and XCloud.</p>
-      <div class="tags"><span class="tag">Laravel</span><span class="tag">WordPress</span><span class="tag">Server automation</span></div>
+    <div class="faq">
+      <button aria-expanded="false">Do you work with WooCommerce and page builders?<span class="car"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      <div class="ans"><p>Yes for WooCommerce: I have built checkout, subscription and payment integrations
+        against it, along with Easy Digital Downloads and PayPal. With page builders my experience is
+        compatibility and performance work on Elementor inside a plugin, rather than building client sites
+        in it, and I am happy to say so up front.</p></div>
     </div>
-  </article>
-
-  <article class="card rv">
-    <div class="body">
-      <div class="ctop"><h3>TubeOnAI</h3><span class="yr">2025</span></div>
-      <p class="meta">Senior Full Stack Developer</p>
-      <p class="contrib"><b>My contribution:</b> I redesigned the backend architecture and REST APIs,
-      cutting average response time by 10% to 20%, and shipped a public developer API. I built the AI
-      content pipeline: summaries with tone and detail modes, mind map generation, timestamped transcripts
-      with in app editing, and the video ingestion layer.</p>
-      <div class="tags"><span class="tag">Laravel</span><span class="tag">Next.js</span><span class="tag">Redis</span><span class="tag">OpenAI</span></div>
+    <div class="faq">
+      <button aria-expanded="false">What timezone are you in?<span class="car"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      <div class="ans"><p>Dhaka, Bangladesh, which is UTC+6. I have worked with distributed teams and can
+        overlap with European and US mornings when a role needs it.</p></div>
     </div>
-  </article>
+  </section>
 
-  <article class="card rv">
-    <div class="body">
-      <div class="ctop"><h3><a href="https://appatlantis.tech/" rel="noopener">App Atlantis</a> and <a href="https://drawhousedesign.com/" rel="noopener">Drawhouse Dhaka</a></h3><span class="yr">2021 to 2022</span></div>
-      <p class="meta">Intern, then Junior Engineer, then Web Application Developer</p>
-      <p class="contrib"><b>My contribution:</b> My first professional web work, across four consecutive
-      terms. I built full stack features with Laravel and React across ERP, POS, accounts and reporting
-      systems, and reworked the reporting dashboards to cut manual processing time by 25%.</p>
-      <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">MySQL</span><span class="tag">jQuery</span></div>
+  <section class="panel pad rv" id="contact">
+    <div class="cta">
+      <div>
+        <span class="kicker">Contact</span>
+        <h2>Have a project in mind? Let's get to work.</h2>
+        <p>The quickest way to reach me is email. I read everything and reply.</p>
+        <a class="btn solid" href="mailto:hoquea57@gmail.com?subject=Work%20enquiry">Send me an email</a>
+      </div>
+      <div class="clist">
+        <a class="cl" href="mailto:hoquea57@gmail.com">
+          <span class="ci"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></span>
+          <span><span class="k">EMAIL</span><br><span class="v">hoquea57@gmail.com</span></span></a>
+        <a class="cl" href="https://www.linkedin.com/in/arifulh" rel="noopener">
+          <span class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 7.5v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></span>
+          <span><span class="k">LINKEDIN</span><br><span class="v">linkedin.com/in/arifulh</span></span></a>
+        <a class="cl" href="https://github.com/arifulhoque7" rel="noopener">
+          <span class="ci"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 5.2 4.9 4.9 0 0 0 19.9 1.6S18.7 1.3 16 3.1a13.4 13.4 0 0 0-7 0C6.3 1.3 5.1 1.6 5.1 1.6A4.9 4.9 0 0 0 5 5.2 5.2 5.2 0 0 0 3.6 8.8c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-1 2.6V22"/></svg></span>
+          <span><span class="k">GITHUB</span><br><span class="v">github.com/arifulhoque7</span></span></a>
+        <div class="cl" style="cursor:default">
+          <span class="ci"><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><span class="k">LOCATION</span><br><span class="v">Dhaka, Bangladesh (UTC+6)</span></span></div>
+      </div>
     </div>
-  </article>
-</section>
+  </section>
 
-<section id="tools">
-  <div class="shead rv">
-    <h2>Tools I work with</h2>
-    <p class="sub">Day to day stack.</p>
-  </div>
-  <article class="card rv"><div class="body">
-    <div class="tags">
-      <span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">Gutenberg</span>
-      <span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">CodeIgniter</span>
-      <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">React</span>
-      <span class="tag">Next.js</span><span class="tag">Vue</span><span class="tag">Node.js</span>
-      <span class="tag">Inertia</span><span class="tag">Tailwind CSS</span><span class="tag">jQuery</span>
-      <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">MySQL</span>
-      <span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">REST API</span>
-      <span class="tag">Git</span><span class="tag">GitHub Actions</span><span class="tag">Playwright</span>
-    </div>
-  </div></article>
-</section>
+  <footer>
+    <p style="margin:0">&copy; 2026 Ariful Hoque</p>
+    <p class="upd">Plugin figures from the WordPress.org plugin API, 3 October 2026.</p>
+  </footer>
 
-<footer>
-  <p style="margin:0 0 7px"><strong style="color:var(--ink)">Ariful Hoque</strong>, Dhaka, Bangladesh.</p>
-  <p style="margin:0">
-    <a href="mailto:hoquea57@gmail.com">hoquea57@gmail.com</a>
-    &nbsp;&middot;&nbsp;
-    <a href="https://github.com/arifulhoque7" rel="noopener">github.com/arifulhoque7</a>
-    &nbsp;&middot;&nbsp;
-    <a href="https://www.linkedin.com/in/arifulh" rel="noopener">linkedin.com/in/arifulh</a>
-  </p>
-  <p class="updated">Plugin figures taken from the WordPress.org plugin API on 3 October 2026.</p>
-</footer>
-
+</main>
 </div>
 
 <script>
 (function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* theme toggle, remembered per viewer where storage allows */
-  var root = document.documentElement, btn = document.getElementById('themeBtn');
-  try{ var saved = localStorage.getItem('theme'); if(saved) root.setAttribute('data-theme', saved); }catch(e){}
-  btn.addEventListener('click', function(){
-    var cur = root.getAttribute('data-theme');
-    if(!cur){
-      cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    var next = cur === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try{ localStorage.setItem('theme', next); }catch(e){}
-  });
-
-  /* scroll progress + sticky nav border */
-  var bar = document.getElementById('bar'), nav = document.getElementById('nav'), ticking = false;
-  function onScroll(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-    nav.classList.toggle('stuck', window.scrollY > 8);
-    ticking = false;
+  var bar=document.getElementById('bar'), tick=false;
+  function sc(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    bar.style.width=(h>0?(scrollY/h)*100:0)+'%'; tick=false;
   }
-  window.addEventListener('scroll', function(){
-    if(!ticking){ ticking = true; window.requestAnimationFrame(onScroll); }
-  }, {passive:true});
-  onScroll();
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(sc);}},{passive:true});
+  sc();
 
-  /* reveal on scroll, staggered within a section */
-  var items = [].slice.call(document.querySelectorAll('.rv'));
-  if(reduce || !('IntersectionObserver' in window)){
-    items.forEach(function(el){ el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
+  var items=[].slice.call(document.querySelectorAll('.rv'));
+  function showAll(){items.forEach(function(e){e.classList.add('in');});}
+  if(reduce||!('IntersectionObserver' in window)){ showAll(); }
+  else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
         if(!e.isIntersecting) return;
-        var el = e.target;
-        var sibs = [].slice.call(el.parentNode.children).filter(function(n){ return n.classList.contains('rv'); });
-        var i = Math.min(sibs.indexOf(el), 5);
-        el.style.transitionDelay = (i * 70) + 'ms';
-        el.classList.add('in');
-        io.unobserve(el);
+        var el=e.target;
+        var sibs=[].slice.call(el.parentNode.children).filter(function(n){return n.classList.contains('rv');});
+        el.style.transitionDelay=(Math.min(sibs.indexOf(el),6)*65)+'ms';
+        el.classList.add('in'); io.unobserve(el);
       });
-    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
-    items.forEach(function(el){ io.observe(el); });
-    /* failsafe: never leave content hidden if something goes wrong */
-    window.setTimeout(function(){
-      items.forEach(function(el){ el.classList.add('in'); });
-    }, 2500);
+    },{rootMargin:'0px 0px -7% 0px',threshold:.06});
+    items.forEach(function(e){io.observe(e);});
+    setTimeout(showAll,2600);
   }
 
-  /* count up the hero stats once they are on screen */
-  function fmt(n){ return n.toLocaleString('en-US'); }
   function run(el){
-    var to = parseInt(el.getAttribute('data-to'), 10),
-        suffix = el.getAttribute('data-suffix') || '';
-    if(reduce){ el.textContent = fmt(to) + suffix; return; }
-    var dur = 1400, t0 = null;
-    function step(ts){
-      if(t0 === null) t0 = ts;
-      var p = Math.min((ts - t0) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = fmt(Math.round(to * eased)) + suffix;
-      if(p < 1) window.requestAnimationFrame(step);
-    }
-    window.requestAnimationFrame(step);
+    var to=+el.getAttribute('data-to'), sfx=el.getAttribute('data-suffix')||'';
+    if(reduce){el.textContent=to.toLocaleString('en-US')+sfx;return;}
+    var d=1400,t0=null;
+    requestAnimationFrame(function step(ts){
+      if(t0===null)t0=ts;
+      var p=Math.min((ts-t0)/d,1), e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(to*e).toLocaleString('en-US')+sfx;
+      if(p<1)requestAnimationFrame(step);
+    });
   }
-  var nums = [].slice.call(document.querySelectorAll('.num'));
-  if(!('IntersectionObserver' in window)){
-    nums.forEach(run);
-  } else {
-    var io2 = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ run(e.target); io2.unobserve(e.target); }
+  var nums=[].slice.call(document.querySelectorAll('.n[data-to]'));
+  if(!('IntersectionObserver' in window)){nums.forEach(run);}
+  else{
+    var io2=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){run(e.target);io2.unobserve(e.target);}});
+    },{threshold:.5});
+    nums.forEach(function(e){io2.observe(e);});
+  }
+
+  var fills=[].slice.call(document.querySelectorAll('.ring .fill'));
+  function draw(c){
+    var pct=+c.getAttribute('data-pct'), len=2*Math.PI*42;
+    c.style.strokeDasharray=len;
+    c.style.strokeDashoffset=len-(len*pct/100);
+  }
+  if(reduce||!('IntersectionObserver' in window)){fills.forEach(draw);}
+  else{
+    var io3=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){draw(e.target);io3.unobserve(e.target);}});
+    },{threshold:.4});
+    fills.forEach(function(c){io3.observe(c);});
+  }
+
+  function wire(sel, bodySel){
+    [].slice.call(document.querySelectorAll(sel)).forEach(function(box){
+      var btn=box.querySelector('button'), body=box.querySelector(bodySel);
+      function set(open){
+        box.classList.toggle('open',open);
+        btn.setAttribute('aria-expanded',open?'true':'false');
+        body.style.maxHeight=open?(body.scrollHeight+'px'):'0px';
+      }
+      set(box.classList.contains('open'));
+      btn.addEventListener('click',function(){ set(!box.classList.contains('open')); });
+      addEventListener('resize',function(){
+        if(box.classList.contains('open')) body.style.maxHeight=body.scrollHeight+'px';
       });
-    }, {threshold:0.5});
-    nums.forEach(function(el){ io2.observe(el); });
+    });
+  }
+  wire('.srv','.srvbody');
+  wire('.faq','.ans');
+
+  var secs=[].slice.call(document.querySelectorAll('main section[id]'));
+  var links=[].slice.call(document.querySelectorAll('#snav a'));
+  if('IntersectionObserver' in window){
+    var io4=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id); });
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){io4.observe(s);});
   }
 })();
 </script>
