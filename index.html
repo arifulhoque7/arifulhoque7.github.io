@@ -197,6 +197,17 @@ img{max-width:100%;display:block}
 code{font-family:var(--mono);font-size:.88em;background:var(--card-2);border:1px solid var(--line);
   padding:1px 5px;border-radius:5px}
 
+.grp{margin:26px 0 14px;font-size:13px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--faint);font-weight:700}
+.badge{font-size:12px;font-family:var(--mono);color:var(--accent-ink);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.bl{margin:0 0 14px;padding-left:19px;color:var(--muted);font-size:15px}
+.bl li{margin:5px 0;line-height:1.55}
+.bl li::marker{color:var(--accent)}
+.bl b{color:var(--ink);font-weight:650}
+.inl{color:var(--accent-ink);font-weight:600;white-space:nowrap}
+.inl:hover{text-decoration:underline}
+.tli ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:14.3px}
+.tli li{margin:3px 0;line-height:1.55}
+.tli li::marker{color:var(--accent)}
 .tl{position:relative;padding-left:26px}
 .tl::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
 .tli{position:relative;padding-bottom:22px}
@@ -419,8 +430,10 @@ footer{text-align:center;color:var(--faint);font-size:13.5px;padding:8px 0 0}
   <section class="panel pad rv" id="work">
     <div class="sechead">
       <div><span class="kicker">Featured work</span><h2 style="margin-top:9px">My Work Showcase</h2></div>
-      <p>All live and public. Figures from the WordPress.org API</p>
+      <p>Live and public. Install counts and ratings from the WordPress.org API</p>
     </div>
+
+    <h3 class="grp" style="margin-top:4px">WordPress plugins at weDevs</h3>
 
     <article class="work rv">
       <a class="wshot" href="https://wordpress.org/plugins/wp-user-frontend/" rel="noopener"><img src="assets/wp-user-frontend-banner.jpg" alt="WP User Frontend" loading="lazy" width="772" height="250"></a>
@@ -428,12 +441,15 @@ footer{text-align:center;color:var(--faint);font-size:13.5px;padding:8px 0 0}
         <div class="wtop"><h3><a href="https://wordpress.org/plugins/wp-user-frontend/" rel="noopener">WP User Frontend</a></h3></div>
         <p class="wurl">wordpress.org/plugins/wp-user-frontend</p>
         <div class="facts"><span class="fact"><b>20,000+</b> installs</span><span class="fact"><span class="star">&#9733;</span> <b>4.1</b>/5 from 535</span><span class="fact">v<b>4.3.13</b></span></div>
-        <p class="ctr"><b>My contribution:</b> I built the AI Form Builder, which generates post and
-        registration forms from a plain English prompt across OpenAI, Anthropic Claude and Google Gemini.
-        I migrated the settings screen and form builder from jQuery to React against a Figma redesign,
-        rebuilt the User Directory with six layouts and faceted filtering, and shipped the SEO Settings
-        module. The GitHub Actions pipeline that publishes this plugin to WordPress.org is one I wrote.</p>
-        <div class="tags"><span class="tag">PHP</span><span class="tag">WordPress</span><span class="tag">React</span><span class="tag">WooCommerce</span><span class="tag">LLM APIs</span></div>
+        <p class="ctr"><b>What I built:</b></p>
+        <ul class="bl">
+          <li>The AI Form Builder, from the ground up: natural language generation of post and registration forms, a predefined template library, and a multi provider layer spanning OpenAI, Anthropic Claude and Google Gemini with model selection, temperature control and API key masking.</li>
+          <li>The React migration against a Figma redesign: the settings screen, the form builder and all ten post and registration templates.</li>
+          <li>A hook based User Directory with six layouts, then faceted filtering, member tags, an A to Z index and shareable filtered URLs in Pro.</li>
+          <li>Seven login form layouts, the SEO Settings module, recurring payments, paid guest posts and invoice emails.</li>
+          <li>The GitHub Actions pipeline that publishes every tagged release to the WordPress.org SVN repository.</li>
+        </ul>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">WooCommerce</span><span class="tag">LLM APIs</span></div>
         <a class="live" href="https://wordpress.org/plugins/wp-user-frontend/" rel="noopener">See it live &rarr;</a>
       </div>
     </article>
@@ -444,24 +460,94 @@ footer{text-align:center;color:var(--faint);font-size:13.5px;padding:8px 0 0}
         <div class="wtop"><h3><a href="https://wordpress.org/plugins/erp/" rel="noopener">WP ERP</a></h3></div>
         <p class="wurl">wordpress.org/plugins/erp</p>
         <div class="facts"><span class="fact"><b>5,000+</b> installs</span><span class="fact"><span class="star">&#9733;</span> <b>4.4</b>/5 from 149</span><span class="fact">v<b>1.17.10</b></span></div>
-        <p class="ctr"><b>My contribution:</b> I rebuilt the HRM admin from Vue to React on a new
-        <code>erp/v2</code> REST API, covering employee profiles, leave, payroll, recruitment, the org
-        chart and a custom field builder, then carried the HR Frontend self service module through
-        documents, permissions and reporting, with dark mode, Arabic RTL and accessibility passes.</p>
+        <p class="ctr"><b>What I built:</b></p>
+        <ul class="bl">
+          <li>Rebuilt the HRM admin from Vue to React on a new <code>erp/v2</code> REST API: employee profile, leave, payroll, recruitment, org chart and a custom field builder.</li>
+          <li>Took the HR Frontend employee self service module to 100% React, then extended it with documents, a permissions UI, head count reporting and termination and rehire flows.</li>
+          <li>The React CV analysis interface in recruitment, plus dark mode, Arabic RTL, skeleton loading and accessibility passes.</li>
+          <li>A one command Vue and React release build that refuses to deploy unless every bundle compiles.</li>
+        </ul>
         <div class="tags"><span class="tag">PHP</span><span class="tag">React</span><span class="tag">REST API</span><span class="tag">Vue</span><span class="tag">RTL / i18n</span></div>
         <a class="live" href="https://wordpress.org/plugins/erp/" rel="noopener">See it live &rarr;</a>
       </div>
     </article>
 
     <article class="work rv">
+      <a class="wshot" href="https://wordpress.org/plugins/wedevs-project-manager/" rel="noopener"><img src="assets/wedevs-project-manager-banner.jpg" alt="WP Project Manager" loading="lazy" width="772" height="250"></a>
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://wordpress.org/plugins/wedevs-project-manager/" rel="noopener">WP Project Manager</a></h3></div>
+        <p class="wurl">wordpress.org/plugins/wedevs-project-manager</p>
+        <div class="facts"><span class="fact"><b>5,000+</b> installs</span><span class="fact"><span class="star">&#9733;</span> <b>3.8</b>/5 from 187</span><span class="fact">v<b>4.1.0</b></span></div>
+        <p class="ctr"><b>What I built:</b></p>
+        <ul class="bl">
+          <li>Restyled Kanban, Gantt, task detail and role scoped dashboards onto a shared design system, and moved Kanban from Pro into the free core.</li>
+          <li>An AI project, chat and subtask generator.</li>
+          <li>GitHub two way sync, the Kanboard Pro module and a Summary Reports overhaul.</li>
+          <li>Security fixes: a SQL injection in the task query and a sensitive data exposure in the <code>/pm/v2/users</code> endpoint.</li>
+        </ul>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">React</span><span class="tag">Design system</span><span class="tag">AI</span><span class="tag">Security</span></div>
+        <a class="live" href="https://wordpress.org/plugins/wedevs-project-manager/" rel="noopener">See it live &rarr;</a>
+      </div>
+    </article>
+
+    <article class="work rv">
+      <a class="wshot" href="https://wordpress.org/plugins/wedocs/" rel="noopener"><img src="assets/wedocs-banner.jpg" alt="weDocs" loading="lazy" width="772" height="250"></a>
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://wordpress.org/plugins/wedocs/" rel="noopener">weDocs</a></h3></div>
+        <p class="wurl">wordpress.org/plugins/wedocs</p>
+        <div class="facts"><span class="fact"><b>5,000+</b> installs</span><span class="fact"><span class="star">&#9733;</span> <b>4.6</b>/5 from 68</span><span class="fact">v<b>2.6.0</b></span></div>
+        <p class="ctr"><b>What I built:</b></p>
+        <ul class="bl">
+          <li>A seven level drag and drop documentation hierarchy, a search modal, a print block and social sharing.</li>
+          <li>AI document summaries and vision model image analysis, a FAQ section with its shortcode, selectable docs URL structures, GDPR handling and an admin analytics dashboard.</li>
+          <li>The retrieval layer for the weDocs AI SaaS: a migration to PostgreSQL with pgvector, per tenant embedding tables with IVFFlat cosine indexes, content hash change detection to skip re-embedding, and chat answers grounded in the retrieved context.</li>
+        </ul>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">RAG</span></div>
+        <a class="live" href="https://wordpress.org/plugins/wedocs/" rel="noopener">See it live &rarr;</a>
+      </div>
+    </article>
+
+    <article class="work rv">
+      <a class="wshot" href="https://wordpress.org/plugins/flyhr/" rel="noopener"><img src="assets/flyhr-banner.jpg" alt="FlyHR" loading="lazy" width="772" height="250"></a>
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://wordpress.org/plugins/flyhr/" rel="noopener">FlyHR</a></h3><span class="badge">built solo</span></div>
+        <p class="wurl">wordpress.org/plugins/flyhr</p>
+        <div class="facts"><span class="fact">v<b>0.1.0</b></span><span class="fact">published <b>August 2026</b></span></div>
+        <p class="ctr"><b>What I built:</b> the whole plugin, from the empty repository to publication.</p>
+        <ul class="bl">
+          <li>A dependency injection container and REST foundation, employees, departments, designations, financial years and holidays.</li>
+          <li>A leave engine with policies, an entitlement ledger and background processing, all behind a single React admin app.</li>
+          <li>A Playwright end to end suite and PHPCS in CI, then two WordPress.org review rounds handled on my own through to approval.</li>
+        </ul>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">React</span><span class="tag">Playwright</span><span class="tag">CI / CD</span></div>
+        <a class="live" href="https://wordpress.org/plugins/flyhr/" rel="noopener">See it live &rarr;</a>
+      </div>
+    </article>
+
+    <article class="work rv">
+      <div class="wbody">
+        <div class="wtop"><h3>Release engineering</h3><span class="badge">across the plugin line</span></div>
+        <div class="facts"><span class="fact"><b>47</b> of <b>129</b> tagged releases cut by me in 12 months</span></div>
+        <ul class="bl">
+          <li>Every WP User Frontend, WP Project Manager and weDocs release, free and pro, since June 2026.</li>
+          <li>Built the pipelines that ship them: a GitHub Actions deploy to the WordPress.org SVN repository, plan zip builds with artifact verification, and Playwright suites sharded across CI matrix jobs.</li>
+        </ul>
+        <div class="tags"><span class="tag">GitHub Actions</span><span class="tag">SVN</span><span class="tag">Playwright</span><span class="tag">CI / CD</span></div>
+      </div>
+    </article>
+
+    <h3 class="grp">SaaS products, built from scratch</h3>
+
+    <article class="work rv">
       <a class="wshot" href="https://sellbuddy.co/" rel="noopener"><img src="assets/sellbuddy-shot.jpg" alt="Sellbuddy home page" loading="lazy" width="900" height="749"></a>
       <div class="wbody">
         <div class="wtop"><h3><a href="https://sellbuddy.co/" rel="noopener">Sellbuddy</a></h3></div>
         <p class="wurl">sellbuddy.co</p>
-        <p class="ctr"><b>My contribution:</b> A multi tenant commerce platform where every seller gets
-        their own storefront on a subdomain. I built subdomain shop resolution, the template registry and
-        theme resolver, a full storefront section editor, the media library, per shop localisation with
-        RTL, and the Laravel Forge deployment setup.</p>
+        <p class="ctr"><b>What I built:</b> a multi tenant commerce platform where every seller gets a storefront on their own subdomain.</p>
+        <ul class="bl">
+          <li>Subdomain shop resolution, a template registry and theme resolver, and a full storefront section editor.</li>
+          <li>A media library, per shop localisation with RTL, and Laravel Forge deployment.</li>
+        </ul>
         <div class="tags"><span class="tag">Laravel 12</span><span class="tag">Inertia</span><span class="tag">React</span><span class="tag">MySQL</span><span class="tag">Forge</span></div>
         <a class="live" href="https://sellbuddy.co/" rel="noopener">See it live &rarr;</a>
       </div>
@@ -472,42 +558,73 @@ footer{text-align:center;color:var(--faint);font-size:13.5px;padding:8px 0 0}
       <div class="wbody">
         <div class="wtop"><h3><a href="https://flyforms.co/" rel="noopener">FlyForms</a></h3></div>
         <p class="wurl">flyforms.co</p>
-        <p class="ctr"><b>My contribution:</b> A drag and drop form builder SaaS I built end to end:
-        workspace and organisation tenancy, plan gated routes with usage metering, the builder, a
-        conditional logic engine, the respondent runtime with validation and anti spam, response
-        analytics with queued exports, a template gallery and embeddable forms.</p>
+        <p class="ctr"><b>What I built:</b> a drag and drop form builder SaaS, end to end.</p>
+        <ul class="bl">
+          <li>Workspace and organisation tenancy, plan gated routes with usage metering.</li>
+          <li>The builder, a conditional logic engine, and a respondent runtime with validation and anti spam.</li>
+          <li>Response analytics with queued exports, a template gallery and embeddable forms.</li>
+        </ul>
         <div class="tags"><span class="tag">Laravel</span><span class="tag">Inertia</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Queues</span></div>
         <a class="live" href="https://flyforms.co/" rel="noopener">See it live &rarr;</a>
       </div>
     </article>
 
+    <h3 class="grp">Earlier roles and client work</h3>
+
     <article class="work rv">
-      <a class="wshot" href="https://wordpress.org/plugins/flyhr/" rel="noopener"><img src="assets/flyhr-banner.jpg" alt="FlyHR" loading="lazy" width="772" height="250"></a>
       <div class="wbody">
-        <div class="wtop"><h3><a href="https://wordpress.org/plugins/flyhr/" rel="noopener">FlyHR</a></h3><span class="wurl" style="margin:0">built solo</span></div>
-        <p class="wurl">wordpress.org/plugins/flyhr</p>
-        <div class="facts"><span class="fact">v<b>0.1.0</b></span><span class="fact">published <b>August 2026</b></span></div>
-        <p class="ctr"><b>My contribution:</b> Built entirely by me, from the empty repository to
-        publication. A dependency injection container and REST foundation, employees, departments,
-        designations, financial years and holidays, a leave engine with policies and an entitlement
-        ledger, and a single React admin app. I wrote the Playwright suite and PHPCS pipeline, and took it
-        through the WordPress.org review rounds alone.</p>
-        <div class="tags"><span class="tag">PHP</span><span class="tag">React</span><span class="tag">Playwright</span><span class="tag">CI / CD</span></div>
-        <a class="live" href="https://wordpress.org/plugins/flyhr/" rel="noopener">See it live &rarr;</a>
+        <div class="wtop"><h3><a href="https://tubeonai.com/" rel="noopener">TubeOnAI</a></h3><span class="badge">Senior Full Stack Developer</span></div>
+        <p class="wurl">tubeonai.com &middot; Feb 2025 to Aug 2025, part-time from April</p>
+        <ul class="bl">
+          <li>Redesigned the backend architecture and REST APIs of an AI video summarisation platform, cutting average API response time by 10% to 20%, and shipped a public Developer API.</li>
+          <li>Built the summary engine's detail level and tone modes across summaries, audio and translation, plus mind map generation and timestamped transcripts with in app editing.</li>
+          <li>Ingestion through yt-dlp and a scraper with transcript fallback, and Azure OpenAI alongside bring your own key paths.</li>
+          <li>Hardened the job queue with Redis locks and background multi video processing, and added Grafana metrics.</li>
+        </ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Next.js</span><span class="tag">Redis</span><span class="tag">OpenAI</span><span class="tag">Grafana</span></div>
+        <a class="live" href="https://tubeonai.com/" rel="noopener">See it live &rarr;</a>
       </div>
     </article>
 
     <article class="work rv">
       <div class="wbody">
-        <div class="wtop"><h3><a href="https://bdtask.com/" rel="noopener">Bdtask client systems</a></h3><span class="wurl" style="margin:0">2022 to 2024</span></div>
-        <p class="wurl">bdtask.com</p>
-        <p class="ctr"><b>My contribution:</b> I customised and delivered business systems for individual
-        clients: a hospital management system, restaurant and POS platforms including Restora POS with
-        Arabic and RTL support, a bus reservation platform, multi branch hotel accounting with branch to
-        main server synchronisation, a gold retail ERP with live price integration, and medical reporting
-        for Lavender Clinics. Client facing throughout, from working out the requirement to launch and
-        support. These are private deployments, so the systems themselves are not publicly linkable.</p>
-        <div class="tags"><span class="tag">PHP</span><span class="tag">CodeIgniter</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">RTL</span></div>
+        <div class="wtop"><h3><a href="https://nextbit.io/" rel="noopener">Nextbit Technologies</a></h3><span class="badge">Software Engineer</span></div>
+        <p class="wurl">nextbit.io &middot; Aug 2024 to Jan 2025</p>
+        <p class="ctr">A Sydney based software studio building commerce platforms, apps and its own SaaS products.</p>
+        <ul class="bl">
+          <li>Built WCStudio, a SaaS for building and hosting WordPress websites, from scratch in Laravel: snapshot management, server configuration and server management comparable to FlyWP and XCloud.</li>
+          <li>Integrated Next.js frontends with Laravel backends across client projects.</li>
+        </ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Next.js</span><span class="tag">WordPress</span><span class="tag">Server automation</span></div>
+      </div>
+    </article>
+
+    <article class="work rv">
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://bdtask.com/" rel="noopener">Bdtask</a></h3><span class="badge">PHP Developer</span></div>
+        <p class="wurl">bdtask.com &middot; Sep 2022 to Jul 2024</p>
+        <p class="ctr">Customised and shipped seven white label enterprise products for overseas clients, rebuilding commercial Laravel and CodeIgniter platforms around each client's operation.</p>
+        <ul class="bl">
+          <li><b>Hospital and clinic system</b> for Lavender World Medical Clinics, Saudi Arabia, delivered over 15 months: Arabic RTL, branch scoped accounts, asset accounting, scheduled jobs, medical notes and reporting. <a class="inl" href="https://hospital.bdtask-demo.com/login" rel="noopener">Base product</a></li>
+          <li><b>GOLD Business ERP</b> with production and CRM modules and real time gold price integration for retail pricing. <a class="inl" href="https://golddemo.bdtask-demoserver.com/login" rel="noopener">Live demo</a></li>
+          <li><b>Restaurant and POS</b> across three deployments (Restora POS, Al Kebab and a Laravel rebuild): chart of accounts, voucher approvals, Excel exports, full Arabic and RTL. <a class="inl" href="https://codecanyon.net/item/bhojon-best-restaurant-management-software-with-restaurant-website/23525997" rel="noopener">Base product</a></li>
+          <li><b>Bus reservation and ticketing</b>: payment handling, ticket date logic and multilingual support. <a class="inl" href="https://codecanyon.net/item/bus365-bus-reservation-system-with-website/20891350" rel="noopener">Base product</a></li>
+          <li><b>Multi branch hotel accounts</b> with branch to main server synchronisation.</li>
+        </ul>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">CodeIgniter</span><span class="tag">MySQL</span><span class="tag">Arabic RTL</span></div>
+      </div>
+    </article>
+
+    <article class="work rv">
+      <div class="wbody">
+        <div class="wtop"><h3><a href="https://appatlantis.tech/" rel="noopener">App Atlantis</a> and <a href="https://drawhousedesign.com/" rel="noopener">Drawhouse Dhaka</a></h3></div>
+        <p class="wurl">Jan 2021 to Aug 2022</p>
+        <ul class="bl">
+          <li>Progressed across four consecutive terms: web developer intern at App Atlantis, intern then junior full stack engineer at Drawhouse, then web application developer at App Atlantis.</li>
+          <li>Delivered full stack features with Laravel and React across ERP, POS, accounts and reporting systems.</li>
+          <li>Reworked the reporting dashboards, cutting manual processing time by 25%.</li>
+        </ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">MySQL</span><span class="tag">SQL Server</span></div>
       </div>
     </article>
   </section>
@@ -515,23 +632,29 @@ footer{text-align:center;color:var(--faint);font-size:13.5px;padding:8px 0 0}
   <section class="panel pad rv" id="resume">
     <div class="sechead"><div><span class="kicker">Resume</span><h2 style="margin-top:9px">Experience &amp; Education</h2></div></div>
     <div class="tl">
-      <div class="tli rv"><div class="when">Mar 2026 to Present</div><h4>Software Engineer II</h4><div class="co">weDevs</div>
-        <p>AI features and UI modernisation across the WordPress product line, plus two Laravel SaaS products built from scratch. I own release engineering for the plugin line.</p></div>
-      <div class="tli rv"><div class="when">Apr 2025 to Feb 2026</div><h4>Software Engineer</h4><div class="co">weDevs</div>
-        <p>Shipped the AI Form Builder and the User Directory rebuild in WP User Frontend, then onboarded onto weDocs, WP ERP and WP Project Manager. Owned security and standards work across the suite.</p></div>
-      <div class="tli rv"><div class="when">Feb 2025 to Aug 2025</div><h4>Senior Full Stack Developer</h4><div class="co">TubeOnAI</div>
-        <p>Redesigned the backend and REST APIs, cutting average response time by 10% to 20%, and built the AI content pipeline. Part-time from April 2025.</p></div>
-      <div class="tli rv"><div class="when">Aug 2024 to Jan 2025</div><h4>Software Engineer</h4><div class="co">Nextbit Technologies</div>
-        <p>Built WCStudio, a Laravel platform for building and hosting WordPress sites, covering provisioning, snapshots and server configuration.</p></div>
-      <div class="tli rv"><div class="when">Sep 2022 to Jul 2024</div><h4>PHP Developer</h4><div class="co">Bdtask</div>
-        <p>Delivered ERP, POS, hospital and hotel systems for clients, including multi branch synchronisation and Arabic RTL support.</p></div>
-      <div class="tli rv"><div class="when">Jan 2021 to Aug 2022</div><h4>Full Stack Web Developer</h4><div class="co">App Atlantis and Drawhouse Dhaka</div>
-        <p>Progressed from intern to web application developer across four terms. Laravel and React features across ERP, POS, accounts and reporting.</p></div>
+      <div class="tli rv"><div class="when">Mar 2026 to Present &middot; Full-time</div><h4>Software Engineer II</h4><div class="co">weDevs, Dhaka</div>
+        <ul><li>Own the AI layer across the weDevs product line and lead the React modernisation of its WordPress products, at 35,000+ installs and 10,000+ paying customers.</li>
+        <li>Built two Laravel SaaS products from scratch, Sellbuddy and FlyForms, and took FlyHR solo through WordPress.org review to publication.</li>
+        <li>Own release engineering: 47 of 129 tagged releases in 12 months, and the pipelines behind them.</li></ul></div>
+      <div class="tli rv"><div class="when">Apr 2025 to Feb 2026 &middot; Full-time</div><h4>Software Engineer</h4><div class="co">weDevs, Dhaka</div>
+        <ul><li>Built the AI Form Builder in WP User Frontend and its multi provider LLM layer.</li>
+        <li>Built the weDocs AI SaaS retrieval layer on PostgreSQL and pgvector.</li>
+        <li>Patched a SQL injection, a sensitive data exposure, a broken access control and a capability check flaw across the suite.</li></ul></div>
+      <div class="tli rv"><div class="when">Feb 2025 to Aug 2025 &middot; Part-time from April</div><h4>Senior Full Stack Developer</h4><div class="co">TubeOnAI</div>
+        <ul><li>Redesigned the backend and REST APIs, cutting average response time by 10% to 20%, and built the AI content pipeline.</li></ul></div>
+      <div class="tli rv"><div class="when">Aug 2024 to Jan 2025 &middot; Full-time</div><h4>Software Engineer</h4><div class="co">Nextbit Technologies</div>
+        <ul><li>Built WCStudio, a Laravel SaaS for building and hosting WordPress sites, with server management comparable to FlyWP and XCloud.</li></ul></div>
+      <div class="tli rv"><div class="when">Sep 2022 to Jul 2024 &middot; Full-time</div><h4>PHP Developer</h4><div class="co">Bdtask</div>
+        <ul><li>Customised and shipped seven white label enterprise products for overseas clients: hospital, gold retail ERP, restaurant POS, bus ticketing and hotel accounts.</li></ul></div>
+      <div class="tli rv"><div class="when">Jan 2021 to Aug 2022</div><h4>Intern to Web Application Developer</h4><div class="co">App Atlantis and Drawhouse Dhaka</div>
+        <ul><li>Four consecutive terms. Laravel and React features across ERP, POS, accounts and reporting; cut manual report processing time by 25%.</li></ul></div>
     </div>
     <h3 style="margin:26px 0 12px;font-size:17px;letter-spacing:-.02em">Education</h3>
     <div class="eduwrap">
-      <div class="edu rv"><h4>M.Sc. in Computer Science &amp; Engineering</h4><div class="sch">BUET</div><span class="gr">Ongoing</span></div>
-      <div class="edu rv"><h4>B.Sc. in Computer Science &amp; Engineering</h4><div class="sch">BRAC University</div><span class="gr">CGPA 3.66 / 4.00</span></div>
+      <div class="edu rv"><h4>M.Sc. in Computer Science &amp; Engineering</h4><div class="sch">Bangladesh University of Engineering and Technology (BUET)</div><span class="gr">Ongoing, from July 2023</span></div>
+      <div class="edu rv"><h4>B.Sc. in Computer Science &amp; Engineering</h4><div class="sch">BRAC University, 2017 to 2021</div><span class="gr">CGPA 3.66 / 4.00</span></div>
+      <div class="edu rv"><h4>Higher Secondary Certificate</h4><div class="sch">Tejgaon College, Dhaka, 2016</div><span class="gr">GPA 5.00 / 5.00</span></div>
+      <div class="edu rv"><h4>Secondary School Certificate</h4><div class="sch">Bangladesh International School &amp; College, Riyadh, 2014</div><span class="gr">GPA 4.75 / 5.00</span></div>
     </div>
   </section>
 
