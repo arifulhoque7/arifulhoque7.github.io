@@ -9,6 +9,9 @@
 <meta property="og:description" content="WordPress and full stack developer. Plugins on 35,000+ active installs, two Laravel SaaS products shipped from scratch.">
 <meta property="og:image" content="https://arifulhoque7.github.io/assets/avatar.jpg">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230a0a0a'/><text y='71' x='50' font-size='60' font-family='Helvetica,Arial' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>">
 <style>
 :root{
@@ -17,8 +20,8 @@
   --accent:#0a0a0a; --accent-ink:#0a0a0a; --accent-soft:#efeff1;
   --sh:0 1px 2px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
   --sh-lg:0 2px 8px rgba(0,0,0,.06), 0 24px 56px rgba(0,0,0,.12);
-  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --sans:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --e:cubic-bezier(.16,1,.3,1);
   --r:18px;
 }
@@ -257,6 +260,14 @@ footer{text-align:center;color:var(--faint);font-size:13.5px;padding:8px 0 0}
 
 .rv{opacity:0;transform:translateY(30px) scale(.985);filter:blur(8px)}
 .rv.in{opacity:1;transform:none;filter:none;transition:opacity .9s var(--e),transform .9s var(--e),filter .9s var(--e)}
+
+body{font-feature-settings:"ss01","cv11";letter-spacing:-.005em}
+.n,.val,.fact,.yrs,.when,.sid,.no{font-variant-numeric:tabular-nums}
+.kicker,.grp,.srole,.sid,.no,.strip .lbl{letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.kicker{font-size:11px}.srole{font-size:11px}
+.hero h1,.sechead h2,.stat .n,.bigsay,.cta h2{letter-spacing:-.04em}
+.hero h1{font-weight:700}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 
 ::selection{background:#0a0a0a;color:#fff}
 .panel{position:relative}
