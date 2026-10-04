@@ -175,7 +175,7 @@ img{max-width:100%;display:block}
 .work{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);
   margin-bottom:16px;transition:.4s var(--e)}
 .work:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
-.wshot{line-height:0;background:var(--card-2);border-bottom:1px solid var(--line);overflow:hidden}
+.wshot{display:block;line-height:0;background:var(--card-2);border-bottom:1px solid var(--line);overflow:hidden}
 .wshot img{width:100%;transition:transform .8s var(--e)}
 .work:hover .wshot img{transform:scale(1.035)}
 .wbody{padding:19px 21px 21px}
@@ -269,6 +269,25 @@ body{font-feature-settings:"ss01","cv11";letter-spacing:-.005em}
 .hero h1{font-weight:700}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 
+.panel.dark{background:#0a0a0a;border-color:#0a0a0a;color:#fafafa}
+.panel.dark::after{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.07),transparent 65%)}
+.panel.dark .kicker{background:#18181b;border-color:#27272a;color:#a1a1aa}
+.panel.dark .sechead p{color:#a1a1aa}
+.aigrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:760px){.aigrid{grid-template-columns:1fr}}
+.aic{background:#141416;border:1px solid #27272a;border-radius:15px;padding:20px;transition:.4s var(--e)}
+.aic:hover{border-color:#52525b;background:#18181b;box-shadow:0 22px 50px rgba(0,0,0,.45)}
+.aitop{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.aiic{width:40px;height:40px;border-radius:11px;background:#fafafa;color:#0a0a0a;display:grid;place-items:center;flex:none}
+.aiic svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round}
+.aiprod{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#a1a1aa;font-weight:600}
+.aic h3{margin:1px 0 0;font-size:17px;letter-spacing:-.025em;color:#fafafa}
+.aistat{margin-left:auto;font-size:11.5px;font-weight:600;color:#0a0a0a;background:#fafafa;padding:3px 9px;border-radius:999px;white-space:nowrap;flex:none}
+.aic p{margin:0 0 14px;color:#a1a1aa;font-size:14.6px;line-height:1.6}
+.aic code{background:#27272a;border-color:#3f3f46;color:#e4e4e7}
+.aic .tag{background:#18181b;border-color:#2f2f35;color:#d4d4d8}
+@media(max-width:520px){.aitop{flex-wrap:wrap}.aistat{margin-left:52px}}
+
 ::selection{background:#0a0a0a;color:#fff}
 .panel{position:relative}
 .panel::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
@@ -349,6 +368,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
   <nav class="snav" id="snav">
     <a href="#top" class="on"><svg viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a>
     <a href="#about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>About</a>
+    <a href="#ai"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>AI Work</a>
     <a href="#skills"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h8l-1 8 10-12h-8z"/></svg>Skills</a>
     <a href="#services"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Services</a>
     <a href="#work"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Work</a>
@@ -366,6 +386,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
       <p class="hi">Hey there, I'm</p>
       <h1><span class="w"><span>Ariful</span></span><br><span class="w"><span>Hoque</span></span></h1>
       <div class="chips">
+        <span class="chip">AI &amp; LLM Integration</span>
         <span class="chip">WordPress &amp; Laravel Developer</span>
         <span class="chip">Based in Dhaka, Bangladesh</span>
       </div>
@@ -379,23 +400,78 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
   <section class="panel strip rv">
     <span class="lbl">Shipping on:</span>
     <div class="track"><div class="marq" aria-hidden="true">
-      <span>WordPress.org</span><span>Laravel</span><span>React</span><span>WooCommerce</span>
+      <span>OpenAI</span><span>Anthropic Claude</span><span>Google Gemini</span><span>pgvector</span><span>WordPress.org</span><span>Laravel</span><span>React</span><span>WooCommerce</span>
       <span>Inertia</span><span>Next.js</span><span>GitHub Actions</span><span>Playwright</span>
-      <span>WordPress.org</span><span>Laravel</span><span>React</span><span>WooCommerce</span>
+      <span>OpenAI</span><span>Anthropic Claude</span><span>Google Gemini</span><span>pgvector</span><span>WordPress.org</span><span>Laravel</span><span>React</span><span>WooCommerce</span>
       <span>Inertia</span><span>Next.js</span><span>GitHub Actions</span><span>Playwright</span>
     </div></div>
   </section>
 
   <section class="panel pad rv" id="about">
     <div style="text-align:center;margin-bottom:18px"><span class="kicker">Biography</span></div>
-    <p class="bigsay">WordPress and full stack developer building plugins that run on
-      <em>35,000+ live sites</em>, two Laravel SaaS products shipped from an empty repository,
-      and client systems delivered <em>end to end</em>.</p>
+    <p class="bigsay">Full stack developer who ships <em>AI into production</em>: LLM features in
+      WordPress plugins running on <em>35,000+ live sites</em>, a RAG retrieval layer on pgvector,
+      and two Laravel SaaS products built from an empty repository.</p>
     <div class="statrow">
       <div class="stat rv"><div class="n" data-to="35000" data-suffix="+">0</div><div class="t">Active installs on WordPress.org</div></div>
       <div class="stat rv"><div class="n" data-to="10000" data-suffix="+">0</div><div class="t">Paying customers served</div></div>
       <div class="stat rv"><div class="n" data-to="939" data-suffix="">0</div><div class="t">User reviews across my plugins</div></div>
       <div class="stat rv"><div class="n" data-to="5" data-suffix="+">0</div><div class="t">Years building for the web</div></div>
+    </div>
+  </section>
+
+
+  <section class="panel pad rv dark" id="ai">
+    <div class="sechead">
+      <div><span class="kicker">AI focus</span><h2 style="margin-top:9px">AI I Have Shipped to Production</h2></div>
+      <p>Live features used by real customers, not side experiments</p>
+    </div>
+    <div class="aigrid">
+      <article class="aic rv">
+        <div class="aitop"><span class="aiic"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg></span>
+          <div><div class="aiprod">WP User Frontend</div><h3>AI Form Builder</h3></div><span class="aistat">20,000+ installs</span></div>
+        <p>Describe a form in plain English and get a working post or registration form. One provider layer
+        behind it spans OpenAI, Anthropic Claude and Google Gemini, with model selection, temperature control,
+        token limits, API key masking and connection testing, plus AI integrations for WooCommerce, EDD and
+        The Events Calendar.</p>
+        <div class="tags"><span class="tag">OpenAI</span><span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">PHP</span><span class="tag">React</span></div>
+      </article>
+      <article class="aic rv">
+        <div class="aitop"><span class="aiic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+          <div><div class="aiprod">weDocs AI SaaS</div><h3>RAG retrieval layer</h3></div><span class="aistat">pgvector</span></div>
+        <p>Moved the docs SaaS onto PostgreSQL with pgvector: per tenant embedding tables, IVFFlat cosine
+        indexes, <code>text-embedding-3-small</code> embeddings, content hash checks that skip re-embedding
+        unchanged documents, and <code>gpt-4o-mini</code> answers grounded in the retrieved context.</p>
+        <div class="tags"><span class="tag">RAG</span><span class="tag">Embeddings</span><span class="tag">pgvector</span><span class="tag">PostgreSQL</span><span class="tag">Laravel</span></div>
+      </article>
+      <article class="aic rv">
+        <div class="aitop"><span class="aiic"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <div><div class="aiprod">TubeOnAI</div><h3>AI content pipeline</h3></div><span class="aistat">10%&ndash;20% faster API</span></div>
+        <p>Video to knowledge pipeline: summaries with detail level and tone modes carried through audio and
+        translation, mind map generation, timestamped transcripts with in app editing, Azure OpenAI alongside
+        bring your own key paths, and GPT-5 model variants, on a queue hardened with Redis locks.</p>
+        <div class="tags"><span class="tag">OpenAI</span><span class="tag">Azure OpenAI</span><span class="tag">Laravel</span><span class="tag">Redis</span></div>
+      </article>
+      <article class="aic rv">
+        <div class="aitop"><span class="aiic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/></svg></span>
+          <div><div class="aiprod">weDocs</div><h3>AI summaries &amp; vision</h3></div><span class="aistat">5,000+ installs</span></div>
+        <p>AI document summaries with plan gating for the knowledge base plugin, and image analysis with vision
+        models inside the documentation editor.</p>
+        <div class="tags"><span class="tag">LLM</span><span class="tag">Vision models</span><span class="tag">React</span></div>
+      </article>
+      <article class="aic rv">
+        <div class="aitop"><span class="aiic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg></span>
+          <div><div class="aiprod">WP Project Manager</div><h3>AI project &amp; subtask generators</h3></div><span class="aistat">5,000+ installs</span></div>
+        <p>Turn a short brief into a structured project: AI project, chat and subtask generators, with the AI
+        settings screen that configures them.</p>
+        <div class="tags"><span class="tag">LLM</span><span class="tag">PHP</span><span class="tag">React</span></div>
+      </article>
+      <article class="aic rv">
+        <div class="aitop"><span class="aiic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 14l2 2 4-4"/></svg></span>
+          <div><div class="aiprod">WP ERP Recruitment</div><h3>AI CV analysis interface</h3></div><span class="aistat">React</span></div>
+        <p>The React interface for AI CV analysis with weighted candidate scoring inside the recruitment module.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">REST API</span></div>
+      </article>
     </div>
   </section>
 
@@ -422,7 +498,16 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
       <p>Tap a row to expand</p>
     </div>
     <div class="srv open">
-      <button class="srvtop" aria-expanded="true"><span class="sid">[001]</span><h3>WordPress Plugin Development</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <button class="srvtop" aria-expanded="true"><span class="sid">[001]</span><h3>AI &amp; LLM Integration</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="srvbody"><div class="in">
+        LLM features built into real products: natural language generation behind one provider layer
+        (OpenAI, Anthropic Claude, Google Gemini), retrieval augmented answers on pgvector, vision model
+        analysis, and the settings, key handling and plan gating that make them safe to ship.
+        <div class="srvtags"><span class="tag">OpenAI</span><span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">RAG</span><span class="tag">pgvector</span></div>
+      </div></div>
+    </div>
+    <div class="srv">
+      <button class="srvtop" aria-expanded="false"><span class="sid">[002]</span><h3>WordPress Plugin Development</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
       <div class="srvbody"><div class="in">
         Plugins built to WordPress.org standards: REST endpoints with real permission checks, Gutenberg
         blocks, React admin screens, internationalisation with RTL, and a release pipeline that publishes
@@ -432,7 +517,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
       </div></div>
     </div>
     <div class="srv">
-      <button class="srvtop" aria-expanded="false"><span class="sid">[002]</span><h3>WooCommerce &amp; Store Integrations</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <button class="srvtop" aria-expanded="false"><span class="sid">[003]</span><h3>WooCommerce &amp; Store Integrations</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
       <div class="srvbody"><div class="in">
         Checkout, subscription and payment flows wired into WooCommerce, Easy Digital Downloads and
         PayPal, including recurring payments, coupon tracking, invoice emails and plan gating.
@@ -440,7 +525,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
       </div></div>
     </div>
     <div class="srv">
-      <button class="srvtop" aria-expanded="false"><span class="sid">[003]</span><h3>Laravel SaaS Development</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <button class="srvtop" aria-expanded="false"><span class="sid">[004]</span><h3>Laravel SaaS Development</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
       <div class="srvbody"><div class="in">
         Multi tenant applications from an empty repository to production: tenancy and subdomain
         resolution, plan gating with usage metering, queued jobs and exports, and deployment on Laravel
@@ -449,7 +534,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
       </div></div>
     </div>
     <div class="srv">
-      <button class="srvtop" aria-expanded="false"><span class="sid">[004]</span><h3>UI Rebuilds &amp; Performance</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <button class="srvtop" aria-expanded="false"><span class="sid">[005]</span><h3>UI Rebuilds &amp; Performance</h3><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
       <div class="srvbody"><div class="in">
         Legacy interfaces moved onto React and a shared design system, with dark mode, RTL and
         accessibility passes. On the backend I profile and remove hot spots, which on one product cut
@@ -893,7 +978,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
       });
     });
     /* 3D tilt on cards */
-    [].slice.call(document.querySelectorAll('.work,.stat,.ring,.skill')).forEach(function(c){
+    [].slice.call(document.querySelectorAll('.work,.stat,.ring,.skill,.aic')).forEach(function(c){
       var k = c.classList.contains('work') ? 2.5 : 7;
       c.addEventListener('mouseenter',function(){ c.style.transition='transform .18s ease-out, box-shadow .4s, border-color .4s, background .4s'; });
       c.addEventListener('mousemove',function(ev){
