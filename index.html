@@ -45,9 +45,6 @@ img{max-width:100%;display:block}
 .side{position:sticky;top:22px;background:var(--card);border:1px solid var(--line);
       border-radius:var(--r);box-shadow:var(--sh);padding:26px 20px 18px;text-align:center}
 @media(max-width:980px){.side{position:static}}
-.ava{width:132px;height:132px;border-radius:50%;margin:0 auto 14px;
-     padding:5px;background:linear-gradient(140deg,#0a0a0a,#9a9aa2)}
-.ava img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid var(--card)}
 .srole{font-size:12.5px;color:var(--faint);font-family:var(--mono);letter-spacing:.04em}
 .sname{font-size:21px;font-weight:700;letter-spacing:-.02em;margin:1px 0 13px}
 .socials{display:flex;justify-content:center;gap:9px;margin-bottom:17px}
@@ -345,11 +342,9 @@ code{overflow-wrap:anywhere}
   /* root cause of sideways scroll: the 1fr track grew to the nav row's min-content width */
   .shell{grid-template-columns:minmax(0,1fr);padding:12px 12px 48px;gap:14px}
   .side,.main{min-width:0}
-  /* compact profile header: photo left, name right, actions and nav underneath */
-  .side{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;
+  /* compact profile header: name on top, actions and nav underneath */
+  .side{display:grid;grid-template-columns:1fr;column-gap:14px;align-items:center;
         text-align:left;padding:16px 16px 12px}
-  .ava{width:76px;height:76px;margin:0;padding:3px;grid-row:1 / span 2}
-  .ava img{border-width:3px}
   .srole{align-self:end;font-size:10px}
   .sname{align-self:start;margin:0;font-size:20px}
   .socials{grid-column:1 / -1;justify-content:flex-start;margin:14px 0 12px}
@@ -428,7 +423,6 @@ code{overflow-wrap:anywhere}
 <div class="shell">
 
 <aside class="side rv">
-  <div class="ava"><img src="assets/avatar.jpg" alt="Ariful Hoque" width="460" height="460"></div>
   <div class="srole">Software Engineer II</div>
   <div class="sname">Ariful Hoque</div>
   <div class="socials">
